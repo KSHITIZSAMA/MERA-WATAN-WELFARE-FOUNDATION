@@ -108,10 +108,7 @@ export default function DocumentsPage() {
 
         {/* Hero Section */}
         <div className="relative border-l-4 border-[#C98E2A] pl-6 md:pl-10 py-4 mb-16 bg-[#3F4632]/10 rounded-r-2xl border-t border-b border-r border-[#586248]/30">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C98E2A]/20 border border-[#C98E2A]/40 text-[#C98E2A] font-mono text-[11px] font-bold tracking-widest uppercase mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#C98E2A] animate-ping" />
-            Official Governance & Compliance Portal
-          </div>
+
           <h1 className="text-3xl md:text-5xl font-black font-display tracking-tight text-white mb-4 uppercase">
             NGO Registration & Compliance Documents
           </h1>

@@ -147,10 +147,7 @@ export default function SiteHeader() {
                 }`}
               >
                 <div className="bg-[#FFFFFF] border-2 border-[#163B66] rounded-xl shadow-2xl p-3 space-y-1.5">
-                  <div className="flex items-center justify-between px-2.5 py-1 bg-[#163B66] text-white font-mono text-[10px] uppercase tracking-widest mb-1 rounded-lg">
-                    <span>NGO INITIATIVES</span>
-                    <span>3 WINGS</span>
-                  </div>
+
                   {ACTIVITIES.map((act) => (
                     <Link
                       key={act.id}

@@ -82,9 +82,7 @@ export default function GallerySection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
           <div>
-            <div className="inline-block px-3 py-1 bg-[#D97706]/15 border border-[#D97706]/40 text-[#B45309] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-              📸 PHOTO GALLERY & DOCUMENTATION
-            </div>
+
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
               MOMENTS FROM THE GROUND
             </h2>

@@ -67,9 +67,7 @@ export default function AboutPage() {
       <section className="bg-white py-16 border-y border-[#163B66]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-block px-3 py-1 bg-[#163B66]/15 text-[#163B66] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-              📊 PROJECT AT A GLANCE (300 BENEFICIARIES)
-            </div>
+
             <h2 className="text-3xl sm:text-4xl font-black uppercase text-[#163B66] font-display">
               Target Beneficiaries & Program Distribution
             </h2>

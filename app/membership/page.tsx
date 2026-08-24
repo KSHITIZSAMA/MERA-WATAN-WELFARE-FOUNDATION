@@ -58,9 +58,7 @@ export default function MembershipPage() {
 
         {/* Header Hero Banner */}
         <div className="bg-[#163B66] text-white p-8 md:p-12 rounded-3xl shadow-xl relative overflow-hidden mb-12 border-b-8 border-[#D97706]">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D97706]/20 border border-[#D97706]/50 text-[#FF9933] font-mono text-[11px] font-bold tracking-widest uppercase mb-4">
-            <span>🎖️ OFFICIAL CADET & VOLUNTEER REGISTRATION</span>
-          </div>
+
           <h1 className="text-3xl md:text-5xl font-black font-display uppercase tracking-tight text-white mb-3">
             Join Mere Vatan Welfare Foundation
           </h1>

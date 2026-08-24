@@ -51,10 +51,7 @@ export default function Home() {
             {/* Left Column: Mission, Title & CTAs */}
             <div className="lg:col-span-7 space-y-6">
               
-              {/* Saffron Pill */}
-              <div className="inline-block px-3.5 py-1 bg-[#D97706]/15 border border-[#D97706]/40 text-[#B45309] font-mono text-xs font-bold tracking-widest uppercase rounded-lg">
-                🇮🇳 NATION FIRST • COMMUNITY ALWAYS
-              </div>
+
 
               {/* High-Impact Dual Tone Heading */}
               <div className="space-y-1">
@@ -188,9 +185,7 @@ export default function Home() {
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
             <div>
-              <div className="inline-block px-3 py-1 bg-[#D97706]/15 border border-[#D97706]/40 text-[#B45309] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-                🏛️ ABOUT MERE VATAN WELFARE FOUNDATION
-              </div>
+
               <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
                 MISSION YUVA SHAKTI & OUR VISION
               </h2>
@@ -295,9 +290,7 @@ export default function Home() {
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
-              <div className="inline-block px-3 py-1 bg-[#D97706]/15 border border-[#D97706]/40 text-[#B45309] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-                ⭐ NGO INITIATIVES & WINGS
-              </div>
+
               <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
                 BRANCHES OF THE FOUNDATION
               </h2>
@@ -407,9 +400,7 @@ export default function Home() {
       <section id="army-training" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           
-          <div className="inline-block px-3.5 py-1 bg-[#D97706]/15 text-[#B45309] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-            // WING 01 (SAFFRON)
-          </div>
+
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-[#163B66] mb-4 font-display">
             ARMY TRAINING WING
           </h2>
@@ -458,9 +449,7 @@ export default function Home() {
       <section id="women-empowerment" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           
-          <div className="inline-block px-3.5 py-1 bg-[#163B66]/15 text-[#163B66] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-            // WING 02 (NAVY BLUE)
-          </div>
+
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-[#163B66] mb-4 font-display">
             WOMEN EMPOWERMENT WING
           </h2>
@@ -509,9 +498,7 @@ export default function Home() {
       <section id="sports-fitness" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           
-          <div className="inline-block px-3.5 py-1 bg-[#10B981]/15 text-[#047857] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-            // WING 03
-          </div>
+
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-[#163B66] mb-4 font-display">
             SPORTS & FITNESS WING
           </h2>
@@ -567,9 +554,7 @@ export default function Home() {
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
-              <div className="inline-block px-3 py-1 bg-[#D97706]/15 border border-[#D97706]/40 text-[#B45309] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-                📅 UPCOMING EVENTS & TRIALS
-              </div>
+
               <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
                 SCHEDULED ACTIVITIES
               </h2>
@@ -608,9 +593,7 @@ export default function Home() {
           
           <div className="flex items-center justify-between mb-8">
             <div>
-              <div className="inline-block px-3 py-1 bg-[#163B66]/15 text-[#163B66] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-                📢 ANNOUNCEMENTS & BULLETIN
-              </div>
+
               <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#163B66] font-display">
                 LATEST NOTICES & BULLETINS
               </h2>
@@ -641,9 +624,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           
           <div className="text-center mb-12">
-            <div className="inline-block px-3 py-1 bg-[#D97706]/15 border border-[#D97706]/40 text-[#B45309] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-              ❤ TRANSPARENCY & ROLL OF HONOR
-            </div>
+
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
               THANK YOU TO OUR DONORS
             </h2>
@@ -689,9 +670,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           
           <div className="mb-12">
-            <div className="inline-block px-3 py-1 bg-[#163B66]/15 text-[#163B66] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-              📞 REACH OUT TO US
-            </div>
+
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
               GET IN TOUCH & LOCATION
             </h2>
