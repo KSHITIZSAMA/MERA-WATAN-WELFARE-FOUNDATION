@@ -7,8 +7,9 @@ export default function ContactSection() {
 
   async function handleContactSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const formEl = e.currentTarget;
     setContactStatus("loading");
-    const form = new FormData(e.currentTarget);
+    const form = new FormData(formEl);
     const payload = {
       name: form.get("name"),
       email: form.get("email"),
@@ -25,8 +26,9 @@ export default function ContactSection() {
         return;
       }
       setContactStatus("done");
-      e.currentTarget.reset();
-    } catch {
+      formEl.reset();
+    } catch (err) {
+      console.error("Contact form error:", err);
       setContactStatus("error");
     }
   }
