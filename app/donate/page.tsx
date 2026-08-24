@@ -106,15 +106,15 @@ export default function DonatePage() {
                 </div>
                 <div className="flex justify-between border-b pb-1.5 border-gray-200">
                   <span className="text-[#64748B]">Bank Name:</span>
-                  <span className="font-bold text-[#0F172A]">State Bank of India</span>
+                  <span className="font-bold text-[#0F172A]">YES Bank</span>
                 </div>
                 <div className="flex justify-between border-b pb-1.5 border-gray-200">
                   <span className="text-[#64748B]">Account No:</span>
-                  <span className="font-bold text-[#D97706] tracking-widest">397812004561</span>
+                  <span className="font-bold text-[#D97706] tracking-widest">054694600000021</span>
                 </div>
                 <div className="flex justify-between border-b pb-1.5 border-gray-200">
                   <span className="text-[#64748B]">IFSC Code:</span>
-                  <span className="font-bold text-[#0F172A]">SBIN0000326</span>
+                  <span className="font-bold text-[#0F172A]">YESB0000546</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#64748B]">Branch:</span>
