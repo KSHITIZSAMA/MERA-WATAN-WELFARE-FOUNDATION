@@ -18,7 +18,7 @@ export default function Home() {
     <div className="relative text-[#0F172A] min-h-screen">
       {/* 21st.dev Custom Noise & Gradient Backdrop */}
       <GradientBackground className="fixed inset-0 pointer-events-none -z-10" />
-      
+
       {/* ------------------------------------------------------------------------- */}
       {/* 1. HERO SECTION (id="hero") — MILIDECK "X" Framed Photo & 98+ Recruitment Stats */}
       {/* ------------------------------------------------------------------------- */}
@@ -26,7 +26,7 @@ export default function Home() {
       {/* 1. HERO SECTION (id="hero") — Modern NGO Prestige Hero Layout */}
       {/* ------------------------------------------------------------------------- */}
       <section id="hero" className="relative bg-transparent text-[#0F172A] overflow-hidden border-b-2 border-[#163B66]/20 py-10 lg:py-16 scroll-mt-24">
-        
+
         {/* Background Ambient Radiance & Tri-Color Strip */}
         <div className="absolute top-0 inset-x-0 h-1.5 flex z-30">
           <span className="w-1/3 bg-[#FF9933]" />
@@ -37,7 +37,7 @@ export default function Home() {
         <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-[#D97706]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
-          
+
           {/* Top Live Trust Pill */}
           <div className="mb-6 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#FFFFFF] border border-[#163B66]/20 shadow-md">
             <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
@@ -47,10 +47,10 @@ export default function Home() {
           </div>
 
           <div className="grid lg:grid-cols-12 gap-10 items-center">
-            
+
             {/* Left Column: Mission, Title & CTAs */}
             <div className="lg:col-span-7 space-y-6">
-              
+
 
 
               {/* High-Impact Dual Tone Heading */}
@@ -111,10 +111,10 @@ export default function Home() {
             {/* Right Column: Officer Frame Showcase */}
             <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
               <div className="relative w-full max-w-md lg:max-w-none">
-                
+
                 {/* Glow ring */}
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#163B66] via-[#D97706] to-[#10B981] opacity-30 blur-lg animate-pulse" />
-                
+
                 {/* Main Card */}
                 <div className="relative bg-[#0D223A] border-4 border-[#163B66] rounded-3xl overflow-hidden shadow-2xl p-2.5">
                   <div className="relative h-[480px] sm:h-[540px] w-full rounded-2xl overflow-hidden bg-[#071526]">
@@ -182,7 +182,7 @@ export default function Home() {
       {/* ------------------------------------------------------------------------- */}
       <section id="about" className="py-20 border-b-2 border-[#163B66]/15 bg-transparent scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          
+
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
             <div>
 
@@ -255,7 +255,6 @@ export default function Home() {
             <div className="grid sm:grid-cols-3 gap-6">
               {data.management.map((m) => (
                 <div key={m.id} className="bg-white p-6 rounded-3xl border border-[#163B66]/15 shadow-md hover:shadow-xl transition-all">
-                  <div className="font-mono text-xs text-[#D97706] mb-1.5 font-bold">LEAD // {m.id}</div>
                   <h3 className="text-xl font-bold uppercase font-display text-[#163B66] mb-1">{m.name}</h3>
                   <div className="text-xs font-mono text-[#D97706] font-bold mb-3">{m.role}</div>
                   <p className="text-xs font-sans text-[#475569] leading-relaxed font-medium">{m.bio}</p>
@@ -287,7 +286,7 @@ export default function Home() {
       {/* ------------------------------------------------------------------------- */}
       <section id="activities" className="py-20 border-b-2 border-[#163B66]/15 bg-[#F4F6F9] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          
+
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
 
@@ -301,7 +300,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
+
             {/* Card 1: Army Training (Saffron / Orange - Top Flag Color) */}
             <div className="bg-white p-8 rounded-3xl shadow-xl border-t-8 border-[#D97706] flex flex-col justify-between group border-x border-b border-gray-200 card-hover-saffron shimmer-card">
               <div>
@@ -399,7 +398,7 @@ export default function Home() {
       {/* ------------------------------------------------------------------------- */}
       <section id="army-training" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          
+
 
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-[#163B66] mb-4 font-display">
             ARMY TRAINING WING
@@ -448,7 +447,7 @@ export default function Home() {
       {/* ------------------------------------------------------------------------- */}
       <section id="women-empowerment" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          
+
 
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-[#163B66] mb-4 font-display">
             WOMEN EMPOWERMENT WING
@@ -497,7 +496,7 @@ export default function Home() {
       {/* ------------------------------------------------------------------------- */}
       <section id="sports-fitness" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          
+
 
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-[#163B66] mb-4 font-display">
             SPORTS & FITNESS WING
@@ -551,7 +550,7 @@ export default function Home() {
       {/* ------------------------------------------------------------------------- */}
       <section id="events" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          
+
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
 
@@ -590,7 +589,7 @@ export default function Home() {
       {/* ------------------------------------------------------------------------- */}
       <section id="notices" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          
+
           <div className="flex items-center justify-between mb-8">
             <div>
 
@@ -622,7 +621,7 @@ export default function Home() {
       {/* ------------------------------------------------------------------------- */}
       <section id="donors" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          
+
           <div className="text-center mb-12">
 
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
@@ -668,7 +667,7 @@ export default function Home() {
       {/* ------------------------------------------------------------------------- */}
       <section id="contact" className="py-20 bg-transparent scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          
+
           <div className="mb-12">
 
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
@@ -677,7 +676,7 @@ export default function Home() {
           </div>
 
           <div className="grid lg:grid-cols-12 gap-12 items-start">
-            
+
             {/* Interactive Contact Form (Client Component) */}
             <ContactSection />
 
