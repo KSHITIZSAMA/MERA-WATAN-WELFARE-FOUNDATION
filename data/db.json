@@ -114,98 +114,69 @@
   "donors": [
     {
       "id": "d1",
-      "name": "Rakesh Traders Pvt. Ltd.",
-      "amount": 25000,
-      "date": "2026-07-01"
+      "name": "Rohit Shrivastav",
+      "amount": 1101,
+      "frequency": "Monthly",
+      "date": "2024-11-14"
     },
     {
       "id": "d2",
-      "name": "Anita Verma",
-      "amount": 5000,
-      "date": "2026-06-15"
+      "name": "Abhishek Raghuvanshi",
+      "amount": 251,
+      "frequency": "Monthly",
+      "date": "2024-08-22"
     },
     {
       "id": "d3",
-      "name": "Local Business Association",
-      "amount": 15000,
-      "date": "2026-05-20"
+      "name": "Ankit",
+      "amount": 251,
+      "frequency": "Monthly",
+      "date": "2024-06-18"
     },
     {
-      "id": "d_1787027286790_3521",
-      "name": "Test Donor",
-      "amount": 500,
-      "date": "2026-08-18"
-    },
-    {
-      "id": "d_1787027332024_764",
-      "name": "Test Donor",
-      "amount": 500,
-      "date": "2026-08-18"
-    },
-    {
-      "id": "d_1787130105829_6283",
-      "name": "CSR Contributor",
-      "amount": 45678,
-      "date": "2026-08-19"
-    },
-    {
-      "id": "d_1787225111207_4917",
-      "name": "anshul sharma",
-      "amount": 1000,
-      "date": "2026-08-20"
-    },
-    {
-      "id": "d_1787225912083_6530",
-      "name": "anshul sharma",
-      "amount": 1017,
-      "date": "2026-08-20"
+      "id": "d4",
+      "name": "Sanjay Yadav",
+      "amount": 251,
+      "frequency": "Monthly",
+      "date": "2024-03-25"
     }
   ],
   "donations": [
     {
-      "id": "don_1787027286790_2234",
-      "date": "2026-08-18",
-      "receiptNo": "RCPT-2026-0001",
-      "donorName": "Test Donor",
-      "email": "test@example.com",
-      "amount": 500,
-      "purpose": "General Fund"
+      "id": "don_001",
+      "date": "2024-11-14",
+      "receiptNo": "RCPT-2024-0001",
+      "donorName": "Rohit Shrivastav",
+      "email": "rohit@example.com",
+      "amount": 1101,
+      "purpose": "Monthly Foundation Cadet Sponsorship"
     },
     {
-      "id": "don_1787027332024_3695",
-      "date": "2026-08-18",
-      "receiptNo": "RCPT-2026-0002",
-      "donorName": "Test Donor",
-      "email": "test@example.com",
-      "amount": 500,
-      "purpose": "General Fund"
+      "id": "don_002",
+      "date": "2024-08-22",
+      "receiptNo": "RCPT-2024-0002",
+      "donorName": "Abhishek Raghuvanshi",
+      "email": "abhishek@example.com",
+      "amount": 251,
+      "purpose": "Monthly Foundation Support"
     },
     {
-      "id": "don_1787130105829_2384",
-      "date": "2026-08-19",
-      "receiptNo": "RCPT-2026-0003",
-      "donorName": "CSR Contributor",
-      "email": "",
-      "amount": 45678,
-      "purpose": "General Fund"
+      "id": "don_003",
+      "date": "2024-06-18",
+      "receiptNo": "RCPT-2024-0003",
+      "donorName": "Ankit",
+      "email": "ankit@example.com",
+      "amount": 251,
+      "purpose": "Monthly Foundation Support"
     },
     {
-      "id": "don_1787225111207_6982",
-      "date": "2026-08-20",
-      "receiptNo": "RCPT-2026-0004",
-      "donorName": "anshul sharma",
-      "email": "kshitiz007singh@gmail.com",
-      "amount": 1000,
-      "purpose": "General Foundation Welfare Fund"
-    },
-    {
-      "id": "don_1787225912083_93",
-      "date": "2026-08-20",
-      "receiptNo": "RCPT-2026-0005",
-      "donorName": "anshul sharma",
-      "email": "kshitiz007singh@gmail.com",
-      "amount": 1017,
-      "purpose": "General Foundation Welfare Fund"
+      "id": "don_004",
+      "date": "2024-03-25",
+      "receiptNo": "RCPT-2024-0004",
+      "donorName": "Sanjay Yadav",
+      "email": "sanjay@example.com",
+      "amount": 251,
+      "purpose": "Monthly Foundation Support"
     }
   ],
   "membershipApplications": [

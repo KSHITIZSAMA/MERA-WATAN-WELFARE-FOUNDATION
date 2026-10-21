@@ -44,13 +44,11 @@ export default function AboutPage() {
       {/* 2. President's Message */}
       {president && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-          <div className="bg-white p-8 sm:p-12 rounded-3xl border border-[#163B66]/15 shadow-xl grid md:grid-cols-[auto_1fr] gap-8 items-center border-l-8 border-[#D97706]">
-            <div className="w-28 h-28 bg-[#163B66] text-[#FF9933] flex items-center justify-center text-4xl font-mono font-bold rounded-3xl border border-[#D97706]/40 shrink-0 shadow-lg">
-              AR
-            </div>
+          <div className="bg-white p-8 sm:p-12 rounded-3xl border border-[#163B66]/15 shadow-xl border-l-8 border-[#D97706]">
             <div>
-              <div className="font-mono text-xs text-[#D97706] tracking-widest uppercase font-bold mb-2">
-                // FOUNDER & PRESIDENT'S ADDRESS
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D97706]/10 border border-[#D97706]/30 text-[#D97706] font-mono text-[11px] font-bold tracking-widest uppercase mb-4 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D97706]" />
+                <span>FOUNDER &amp; PRESIDENT&apos;S ADDRESS</span>
               </div>
               <p className="text-base sm:text-lg italic font-sans leading-relaxed text-[#334155] max-w-3xl">
                 "Mera Vatan Welfare Foundation was established with a singular conviction — that discipline, physical fitness, and career-oriented skills can transform a family's economic future in a single generation. Our flagship project, Mission Yuva Shakti, is designed not just for examination coaching, but to make youth career-ready, skill-ready, and employment-ready."
@@ -289,7 +287,7 @@ export default function AboutPage() {
         <div className="grid sm:grid-cols-3 gap-6">
           {data.management.map((m) => (
             <div key={m.id} className="bg-white p-6 rounded-3xl border border-[#163B66]/15 shadow-md hover:shadow-xl transition-all">
-              <div className="font-mono text-xs text-[#D97706] mb-1.5 font-bold">LEADERSHIP // {m.id}</div>
+              <div className="font-mono text-xs text-[#D97706] mb-1.5 font-bold">LEADERSHIP • {m.id}</div>
               <h3 className="text-xl font-bold uppercase font-display text-[#163B66] mb-1">{m.name}</h3>
               <div className="text-xs font-mono text-[#D97706] font-bold mb-3">{m.role}</div>
               <p className="text-xs font-sans text-[#475569] leading-relaxed font-medium">{m.bio}</p>

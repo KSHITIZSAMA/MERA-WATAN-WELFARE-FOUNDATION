@@ -35,7 +35,7 @@ export interface DbShape {
   gallery: Array<{ id: string; caption: string; category: string }>;
   testimonials: Array<{ id: string; name: string; program: string; quote: string; year: string }>;
   management: Array<{ id: string; name: string; role: string; bio: string }>;
-  donors: Array<{ id: string; name: string; amount: number; date: string }>;
+  donors: Array<{ id: string; name: string; amount: number; date: string; frequency?: string }>;
   donations: Array<{
     id: string;
     donorName: string;
@@ -62,12 +62,12 @@ export interface DbShape {
 let memoryDb: DbShape | null = null;
 
 function readDb(): DbShape {
-  if (memoryDb) return memoryDb;
   try {
     const raw = fs.readFileSync(DB_PATH, "utf-8");
     memoryDb = JSON.parse(raw) as DbShape;
     return memoryDb;
   } catch {
+    if (memoryDb) return memoryDb;
     memoryDb = {
       users: [],
       members: [],

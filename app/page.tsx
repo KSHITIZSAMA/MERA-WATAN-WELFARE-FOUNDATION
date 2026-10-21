@@ -7,10 +7,11 @@ import GallerySection from "@/components/GallerySection";
 import StatCounter from "@/components/StatCounter";
 import { GradientBackground } from "@/components/GradientBackground";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   const data = db.read();
   const recentActivity = [...data.notices].slice(0, 4);
-  const upcomingEvents = [...data.events];
   const sortedDonors = [...data.donors].sort((a, b) => (a.date < b.date ? 1 : -1));
   const president = data.management.find((m) => m.role.toLowerCase().includes("president"));
 
@@ -38,13 +39,6 @@ export default function Home() {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
 
-          {/* Top Live Trust Pill */}
-          <div className="mb-6 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#FFFFFF] border border-[#163B66]/20 shadow-md">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
-            <span className="text-xs font-mono font-bold tracking-widest text-[#163B66] uppercase">
-              REGISTERED NGO #12A/80G • GOVT DARPAN ID: RJ/2024/0488921
-            </span>
-          </div>
 
           <div className="grid lg:grid-cols-12 gap-10 items-center">
 
@@ -81,7 +75,7 @@ export default function Home() {
                   href="/donate"
                   className="px-7 py-4 bg-[#163B66] text-white font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#0D223A] transition-all shadow-xl rounded-xl flex items-center gap-2 border-b-4 border-[#0D223A]"
                 >
-                  <span>❤ DONATE (80G TAX EXEMPT)</span>
+                  <span>❤ DONATE</span>
                 </Link>
                 <ScrollButton
                   targetId="about"
@@ -126,13 +120,6 @@ export default function Home() {
                       className="object-cover object-top filter contrast-105 brightness-100 transform hover:scale-105 transition-transform duration-700"
                     />
 
-                    {/* Top Floating Badge */}
-                    <div className="absolute top-4 left-4 z-20">
-                      <div className="px-3.5 py-1.5 bg-[#163B66]/90 backdrop-blur-md border border-[#D97706]/60 text-white font-mono text-[10px] uppercase font-bold tracking-widest rounded-xl shadow-lg flex items-center gap-2">
-                        <span className="text-[#FF9933]">🎖️</span>
-                        <span>DEFENCE MENTORSHIP</span>
-                      </div>
-                    </div>
 
                     {/* Bottom Floating Card */}
                     <div className="absolute bottom-4 inset-x-4 z-20">
@@ -162,7 +149,7 @@ export default function Home() {
             </div>
             <div className="p-4 bg-white/80 backdrop-blur-sm border border-[#163B66]/15 rounded-2xl shadow-sm text-center">
               <div className="text-2xl font-black font-mono text-[#D97706]">100%</div>
-              <div className="text-[11px] font-mono font-bold text-[#64748B] uppercase mt-0.5">80G Tax Exempt</div>
+              <div className="text-[11px] font-mono font-bold text-[#64748B] uppercase mt-0.5">Non-Profit</div>
             </div>
             <div className="p-4 bg-white/80 backdrop-blur-sm border border-[#163B66]/15 rounded-2xl shadow-sm text-center">
               <div className="text-2xl font-black font-mono text-[#10B981]">500+</div>
@@ -192,10 +179,10 @@ export default function Home() {
             </div>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#D97706] hover:text-[#B45309] uppercase tracking-wider mt-4 md:mt-0"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#D97706] hover:bg-[#B45309] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl border-b-4 border-[#B45309] group mt-4 md:mt-0 shrink-0"
             >
               <span>EXPLORE FULL CSR PROJECT PROPOSAL</span>
-              <span>→</span>
+              <span className="group-hover:translate-x-1 transition-transform font-bold text-white">→</span>
             </Link>
           </div>
 
@@ -209,9 +196,7 @@ export default function Home() {
                 <h3 className="text-2xl sm:text-4xl font-black uppercase font-display text-white">
                   "हर युवा को हुनर, हर हाथ को अवसर"
                 </h3>
-                <p className="text-gray-200 text-xs sm:text-sm font-body mt-2 max-w-2xl leading-relaxed">
-                  Empowering 300 direct rural youth and 1,000+ family members across Betul, MP through Defence Entrance Coaching, Women Self-Reliance, IT Employability & Sports Leadership.
-                </p>
+
               </div>
 
               <div className="grid grid-cols-2 gap-3 shrink-0 font-mono text-xs text-center w-full md:w-auto">
@@ -229,15 +214,13 @@ export default function Home() {
 
           {/* President's Message */}
           {president && (
-            <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-xl mb-12 border-l-8 border-[#D97706] border border-[#163B66]/15 grid md:grid-cols-[auto_1fr] gap-8 items-center">
-              <div className="w-24 h-24 bg-[#163B66] text-[#FF9933] flex items-center justify-center text-3xl font-mono font-bold rounded-2xl border border-[#D97706]/40 shrink-0 shadow-lg">
-                AR
-              </div>
+            <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-xl mb-12 border-l-8 border-[#D97706] border border-[#163B66]/15">
               <div>
-                <div className="font-mono text-xs text-[#D97706] tracking-widest uppercase font-bold mb-2">
-                  // FOUNDER & PRESIDENT'S MESSAGE
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D97706]/10 border border-[#D97706]/30 text-[#D97706] font-mono text-[11px] font-bold tracking-widest uppercase mb-4 shadow-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D97706]" />
+                  <span>FOUNDER &amp; PRESIDENT&apos;S MESSAGE</span>
                 </div>
-                <p className="text-base sm:text-lg italic font-sans leading-relaxed text-[#334155] max-w-3xl">
+                <p className="text-base sm:text-lg italic font-sans leading-relaxed text-[#334155] max-w-4xl">
                   "We started this foundation with one belief — that discipline, physical fitness, and skill self-reliance can transform a family's economic future in a single generation. Every batch we run, every cadet we mentor, is a step toward a stronger nation."
                 </p>
                 <div className="mt-4 font-mono text-sm font-bold text-[#163B66] uppercase">
@@ -249,8 +232,9 @@ export default function Home() {
 
           {/* Management Team Grid */}
           <div className="space-y-6 mb-16">
-            <div className="font-mono text-xs text-[#163B66] font-bold tracking-widest uppercase">
-              // FOUNDATION LEADERSHIP & INSTRUCTORS
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#163B66]/10 border border-[#163B66]/20 text-[#163B66] font-mono text-xs font-bold tracking-widest uppercase shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#163B66]" />
+              <span>FOUNDATION LEADERSHIP &amp; INSTRUCTORS</span>
             </div>
             <div className="grid sm:grid-cols-3 gap-6">
               {data.management.map((m) => (
@@ -265,8 +249,9 @@ export default function Home() {
 
           {/* Core Objectives */}
           <div className="bg-[#0D223A] text-white p-8 sm:p-10 rounded-3xl border-t-4 border-[#D97706] shadow-xl">
-            <div className="font-mono text-xs text-[#FF9933] font-bold tracking-widest uppercase mb-6">
-              // CORE OBJECTIVES & FOUNDATION VALUES
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FF9933] font-mono text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#FF9933]" />
+              <span>CORE OBJECTIVES &amp; FOUNDATION VALUES</span>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {data.objectives.map((obj, i) => (
@@ -305,7 +290,7 @@ export default function Home() {
             <div className="bg-white p-8 rounded-3xl shadow-xl border-t-8 border-[#D97706] flex flex-col justify-between group border-x border-b border-gray-200 card-hover-saffron shimmer-card">
               <div>
                 <div className="flex items-center justify-between font-mono text-xs text-[#64748B] mb-4">
-                  <span>WING // 01</span>
+                  <span>WING 01</span>
                   <span className="px-3 py-1 bg-[#D97706] text-white text-[10px] uppercase font-bold rounded-full shadow-sm">DEFENCE</span>
                 </div>
                 <h3 className="text-2xl font-extrabold uppercase mb-3 tracking-wide text-[#163B66] font-display group-hover:text-[#D97706] transition-colors">
@@ -334,7 +319,7 @@ export default function Home() {
             <div className="bg-white p-8 rounded-3xl shadow-xl border-t-8 border-[#163B66] flex flex-col justify-between group border-x border-b border-gray-200 card-hover-navy shimmer-card">
               <div>
                 <div className="flex items-center justify-between font-mono text-xs text-[#64748B] mb-4">
-                  <span>WING // 02</span>
+                  <span>WING 02</span>
                   <span className="px-3 py-1 bg-[#163B66] text-[#FF9933] text-[10px] uppercase font-bold rounded-full shadow-sm">VOCATIONAL</span>
                 </div>
                 <h3 className="text-2xl font-extrabold uppercase mb-3 tracking-wide text-[#163B66] font-display group-hover:text-[#163B66] transition-colors">
@@ -363,7 +348,7 @@ export default function Home() {
             <div className="bg-white p-8 rounded-3xl shadow-xl border-t-8 border-[#10B981] flex flex-col justify-between group border-x border-b border-gray-200 card-hover-green shimmer-card">
               <div>
                 <div className="flex items-center justify-between font-mono text-xs text-[#64748B] mb-4">
-                  <span>WING // 03</span>
+                  <span>WING 03</span>
                   <span className="px-3 py-1 bg-[#10B981] text-white text-[10px] uppercase font-bold rounded-full shadow-sm">ATHLETICS</span>
                 </div>
                 <h3 className="text-2xl font-extrabold uppercase mb-3 tracking-wide text-[#163B66] font-display group-hover:text-[#10B981] transition-colors">
@@ -545,44 +530,6 @@ export default function Home() {
       {/* ------------------------------------------------------------------------- */}
       <GallerySection />
 
-      {/* ------------------------------------------------------------------------- */}
-      {/* 8. EVENTS SECTION (id="events") */}
-      {/* ------------------------------------------------------------------------- */}
-      <section id="events" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-
-              <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
-                SCHEDULED ACTIVITIES
-              </h2>
-            </div>
-            <p className="text-sm font-mono text-[#64748B] max-w-md mt-3 md:mt-0 uppercase font-semibold">
-              Join upcoming physical fitness trials, written exam batches, and community drives.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {upcomingEvents.map((e) => (
-              <div key={e.id} className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl border border-[#163B66]/15 shadow-md flex flex-col sm:flex-row items-start gap-6 hover:shadow-xl transition-all">
-                <div className="bg-[#163B66] text-white p-4 text-center font-mono shrink-0 rounded-2xl w-24 border-b-4 border-[#D97706]">
-                  <div className="text-3xl font-extrabold text-[#FF9933] leading-none">{new Date(e.date).getDate()}</div>
-                  <div className="text-[11px] uppercase mt-1 text-gray-200 font-bold">
-                    {new Date(e.date).toLocaleString("default", { month: "short", year: "numeric" })}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-bold text-[#163B66] uppercase text-lg font-mono mb-1">{e.title}</h3>
-                  <div className="text-xs font-mono text-[#D97706] font-bold mb-2">📍 LOCATION: {e.location}</div>
-                  <p className="text-xs text-[#475569] leading-relaxed font-sans max-w-3xl font-medium">{e.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
 
       {/* ------------------------------------------------------------------------- */}
       {/* 9. NOTICES & ANNOUNCEMENTS (id="notices") */}
@@ -604,7 +551,7 @@ export default function Home() {
             {recentActivity.map((n) => (
               <div key={n.id} className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl border border-[#163B66]/15 shadow-md hover:shadow-xl transition-all">
                 <div className="flex items-center justify-between font-mono text-xs text-[#64748B] mb-3">
-                  <span className="px-3 py-1 bg-[#163B66] text-[#FF9933] font-bold rounded-full text-[10px]">NOTICE // {n.id}</span>
+                  <span className="px-3 py-1 bg-[#163B66] text-[#FF9933] font-bold rounded-full text-[10px]">NOTICE #{n.id}</span>
                   <span className="font-bold">{n.date}</span>
                 </div>
                 <h3 className="text-base font-bold text-[#163B66] uppercase mb-2 font-mono">{n.title}</h3>
@@ -638,6 +585,7 @@ export default function Home() {
                 <tr>
                   <th className="text-left px-6 py-4 uppercase font-bold tracking-wider">DONOR NAME</th>
                   <th className="text-left px-6 py-4 uppercase font-bold tracking-wider">CONTRIBUTION</th>
+                  <th className="text-left px-6 py-4 uppercase font-bold tracking-wider">FREQUENCY</th>
                   <th className="text-left px-6 py-4 uppercase font-bold tracking-wider">DATE</th>
                 </tr>
               </thead>
@@ -646,6 +594,11 @@ export default function Home() {
                   <tr key={d.id} className={i % 2 ? "bg-[#F8FAFC]/80" : "bg-white/90"}>
                     <td className="px-6 py-4 font-bold text-[#163B66]">{d.name}</td>
                     <td className="px-6 py-4 text-[#D97706] font-bold">₹{d.amount.toLocaleString("en-IN")}</td>
+                    <td className="px-6 py-4">
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#10B981]/15 text-[#059669] border border-[#10B981]/30">
+                        {d.frequency || "Monthly"}
+                      </span>
+                    </td>
                     <td className="px-6 py-4 text-[#64748B]">{d.date}</td>
                   </tr>
                 ))}
@@ -655,7 +608,7 @@ export default function Home() {
 
           <div className="text-center">
             <Link href="/donate" className="px-8 py-4 bg-[#D97706] text-white font-mono text-xs font-bold uppercase tracking-widest hover:bg-[#B45309] transition-all rounded-xl inline-block shadow-lg border-b-4 border-[#B45309]">
-              BECOME A DONOR & GET 80G RECEIPT →
+              BECOME A DONOR &amp; SUPPORT OUR MISSION →
             </Link>
           </div>
 

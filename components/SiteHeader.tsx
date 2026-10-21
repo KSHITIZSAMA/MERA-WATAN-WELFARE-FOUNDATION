@@ -14,7 +14,6 @@ const NAV_ITEMS = [
   { id: "about", href: "/#about", label: "About" },
   { id: "activities", href: "/#activities", label: "Wings" },
   { id: "gallery", href: "/#gallery", label: "Gallery" },
-  { id: "events", href: "/#events", label: "Events" },
   { id: "donors", href: "/#donors", label: "Donors" },
   { id: "contact", href: "/#contact", label: "Contact" },
 ];
@@ -32,7 +31,7 @@ export default function SiteHeader() {
   useEffect(() => {
     if (pathname !== "/") return;
 
-    const sectionIds = ["hero", "about", "activities", "army-training", "women-empowerment", "sports-fitness", "gallery", "events", "notices", "donors", "contact"];
+    const sectionIds = ["hero", "about", "activities", "army-training", "women-empowerment", "sports-fitness", "gallery", "notices", "donors", "contact"];
     const sectionElements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);

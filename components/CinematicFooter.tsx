@@ -320,8 +320,9 @@ export function CinematicFooter() {
 
           {/* 2. Main Center Content */}
           <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 mt-20 sm:mt-24 w-full max-w-5xl mx-auto">
-            <div className="inline-block px-4 py-1.5 bg-[#163B66] text-[#FF9933] font-mono text-xs font-bold uppercase tracking-widest mb-3 rounded-full border border-[#D97706]/40">
-              // MERE VATAN WELFARE FOUNDATION
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#163B66] text-[#FF9933] font-mono text-xs font-bold uppercase tracking-widest mb-3 rounded-full border border-[#D97706]/40 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF9933]" />
+              <span>MERE VATAN WELFARE FOUNDATION</span>
             </div>
 
             <h2
@@ -390,7 +391,7 @@ export function CinematicFooter() {
                   className="footer-glass-pill px-5 py-2.5 rounded-full text-[#E2E8F0] font-mono text-xs hover:text-white uppercase tracking-wider flex items-center gap-2 border-[#163B66]/60"
                 >
                   <span className="text-[#FF9933]">🎖️</span>
-                  Careers // Instructors
+                  Careers &amp; Instructors
                 </MagneticButton>
               </div>
             </div>
