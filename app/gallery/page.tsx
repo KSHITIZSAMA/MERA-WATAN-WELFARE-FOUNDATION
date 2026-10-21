@@ -87,25 +87,28 @@ const ALL_PHOTOS: ArchivePhoto[] = [
     location: "R.A. Sports Stadium",
     tag: "LEADERSHIP ADDRESS",
   },
-];
-
-const CATEGORIES = [
-  "ALL ARCHIVE PHOTOS",
-  "Army Training",
-  "Women Empowerment",
-  "Sports & Fitness",
-  "Environment & Plantation",
-  "Honor & Ceremonies",
+  {
+    id: "p9",
+    caption: "Betul Mirror Press Coverage: Free Nutritious Diet Initiative for 160 Cadets (Mere Vatan Welfare Foundation & RDA)",
+    category: "Media Coverage",
+    src: "/images/news-betul-mirror.jpg",
+    batchDate: "PRESS COVERAGE • BETUL MIRROR",
+    location: "Police Ground, Betul (M.P.)",
+    tag: "MEDIA COVERAGE",
+  },
+  {
+    id: "p10",
+    caption: "Dainik Khabarwani Newspaper Feature: Cadet Nutritional Support & Physical Training Campaign",
+    category: "Media Coverage",
+    src: "/images/news-dainik-khabarwani.jpg",
+    batchDate: "PRESS COVERAGE • DAINIK KHABARWANI",
+    location: "Betul City, Madhya Pradesh",
+    tag: "MEDIA COVERAGE",
+  },
 ];
 
 export default function GalleryArchivePage() {
-  const [activeCategory, setActiveCategory] = useState("ALL ARCHIVE PHOTOS");
   const [activeItem, setActiveItem] = useState<ArchivePhoto | null>(null);
-
-  const filteredPhotos =
-    activeCategory === "ALL ARCHIVE PHOTOS"
-      ? ALL_PHOTOS
-      : ALL_PHOTOS.filter((photo) => photo.category === activeCategory);
 
   return (
     <main className="min-h-screen bg-[#F4F6F9] text-[#0F172A] selection:bg-[#D97706] selection:text-white pt-28 pb-24">
@@ -149,26 +152,9 @@ export default function GalleryArchivePage() {
           </div>
         </div>
 
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap gap-2.5 sm:gap-3 mb-10 border-b border-gray-200 pb-5">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 text-xs font-mono font-bold tracking-wider uppercase transition-all rounded-xl ${
-                activeCategory === cat
-                  ? "bg-[#163B66] text-white shadow-lg border-b-2 border-[#D97706]"
-                  : "bg-white text-[#334155] border border-gray-200 hover:bg-[#163B66] hover:text-white"
-              }`}
-            >
-              {cat === "ALL ARCHIVE PHOTOS" ? "• SHOW ALL ARCHIVE" : cat}
-            </button>
-          ))}
-        </div>
-
         {/* Photo Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPhotos.map((photo) => (
+          {ALL_PHOTOS.map((photo) => (
             <div
               key={photo.id}
               onClick={() => setActiveItem(photo)}
@@ -183,16 +169,6 @@ export default function GalleryArchivePage() {
                   className="object-cover object-center filter contrast-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#071526]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-
-                {/* Category Pill Tag */}
-                <div className="absolute top-3 left-3 px-3.5 py-1 bg-[#163B66]/90 backdrop-blur-md text-[#FF9933] font-mono text-[10px] font-bold uppercase tracking-widest rounded-full border border-[#D97706]/40 shadow-md">
-                  {photo.category}
-                </div>
-
-                {/* Subtag Pill */}
-                <div className="absolute top-3 right-3 px-2.5 py-1 bg-[#D97706] text-white font-mono text-[9px] font-bold uppercase tracking-wider rounded-full shadow-md">
-                  {photo.tag}
-                </div>
               </div>
 
               {/* Details */}
@@ -251,7 +227,7 @@ export default function GalleryArchivePage() {
             <div className="p-6 bg-[#163B66] text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t-2 border-[#D97706]">
               <div>
                 <div className="font-mono text-xs text-[#FF9933] font-bold uppercase tracking-wider mb-1">
-                  • {activeItem.category} — {activeItem.batchDate}
+                  • {activeItem.batchDate}
                 </div>
                 <h3 className="text-xl font-bold uppercase font-display text-white">
                   {activeItem.caption}

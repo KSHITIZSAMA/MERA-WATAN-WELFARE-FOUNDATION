@@ -64,16 +64,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
   },
 ];
 
-const CATEGORIES = ["ALL", "Army Training", "Women Empowerment", "Sports & Fitness"];
-
 export default function GallerySection() {
-  const [activeCategory, setActiveCategory] = useState("ALL");
   const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
-
-  const filteredItems =
-    activeCategory === "ALL"
-      ? GALLERY_ITEMS
-      : GALLERY_ITEMS.filter((item) => item.category === activeCategory);
 
   return (
     <section id="gallery" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
@@ -82,7 +74,6 @@ export default function GallerySection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
           <div>
-
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
               MOMENTS FROM THE GROUND
             </h2>
@@ -92,25 +83,9 @@ export default function GallerySection() {
           </p>
         </div>
 
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap gap-2.5 sm:gap-3 mb-10 border-b border-gray-200 pb-5">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 text-xs font-mono font-bold tracking-wider uppercase transition-all rounded-xl ${activeCategory === cat
-                  ? "bg-[#163B66] text-white shadow-lg border-b-2 border-[#D97706]"
-                  : "bg-white text-[#334155] border border-gray-200 hover:bg-[#163B66] hover:text-white"
-                }`}
-            >
-              {cat === "ALL" ? "• SHOW ALL" : cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Gallery Grid */}
+        {/* Gallery Grid - All 6 Photos */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
+          {GALLERY_ITEMS.map((item) => (
             <div
               key={item.id}
               onClick={() => setActiveItem(item)}
@@ -125,11 +100,6 @@ export default function GallerySection() {
                   className="object-cover object-center filter contrast-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#071526]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-
-                {/* Category Pill Tag */}
-                <div className="absolute top-3 left-3 px-3.5 py-1 bg-[#163B66]/90 backdrop-blur-md text-[#FF9933] font-mono text-[10px] font-bold uppercase tracking-widest rounded-full border border-[#D97706]/40 shadow-md group-hover:scale-105 transition-transform">
-                  {item.category}
-                </div>
               </div>
 
               {/* Card Footer Details */}
@@ -203,7 +173,7 @@ export default function GallerySection() {
             <div className="p-6 bg-[#163B66] text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t-4 border-[#D97706]">
               <div>
                 <div className="font-mono text-xs text-[#FF9933] font-bold uppercase tracking-wider mb-1">
-                  • {activeItem.category} — {activeItem.batchDate}
+                  • {activeItem.batchDate}
                 </div>
                 <h3 className="text-xl font-bold uppercase font-display text-white">
                   {activeItem.caption}
