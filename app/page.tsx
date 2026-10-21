@@ -537,21 +537,16 @@ export default function Home() {
       <section id="notices" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
-          <div className="flex items-center justify-between mb-8">
-            <div>
-
-              <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#163B66] font-display">
-                LATEST NOTICES & BULLETINS
-              </h2>
-            </div>
-            <span className="font-mono text-xs font-bold text-[#163B66] hidden sm:inline-block bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl border border-gray-200 shadow-xs">[ ACTIVE BOARD ]</span>
+          <div className="mb-8">
+            <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#163B66] font-display">
+              LATEST NOTICES & BULLETINS
+            </h2>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
             {recentActivity.map((n) => (
               <div key={n.id} className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl border border-[#163B66]/15 shadow-md hover:shadow-xl transition-all">
-                <div className="flex items-center justify-between font-mono text-xs text-[#64748B] mb-3">
-                  <span className="px-3 py-1 bg-[#163B66] text-[#FF9933] font-bold rounded-full text-[10px]">NOTICE #{n.id}</span>
+                <div className="flex items-center justify-end font-mono text-xs text-[#64748B] mb-3">
                   <span className="font-bold">{n.date}</span>
                 </div>
                 <h3 className="text-base font-bold text-[#163B66] uppercase mb-2 font-mono">{n.title}</h3>
