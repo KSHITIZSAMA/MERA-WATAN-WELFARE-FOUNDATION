@@ -63,6 +63,10 @@ const STYLES = `
 
 .animate-footer-heartbeat {
   animation: footer-heartbeat 2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center;
 }
 
 /* Theme-adaptive Grid Background */
@@ -393,31 +397,43 @@ export function CinematicFooter() {
           </div>
 
           {/* 3. Bottom Bar / Credits */}
-          <div className="relative z-20 w-full pb-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="relative z-20 w-full pb-8 px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-6">
 
             {/* Copyright */}
-            <div className="text-[#E2E8F0] text-[10px] md:text-xs font-mono tracking-widest uppercase order-2 md:order-1">
-              © 2026 MERE VATAN WELFARE FOUNDATION. ALL RIGHTS RESERVED.
+            <div className="flex-1 flex items-center justify-center lg:justify-start order-2 lg:order-1 text-center lg:text-left">
+              <span className="text-[#E2E8F0] text-[10px] md:text-xs font-mono tracking-wider md:tracking-widest uppercase">
+                © 2026 MERE VATAN WELFARE FOUNDATION. ALL RIGHTS RESERVED.
+              </span>
             </div>
 
             {/* "Made with Love" Badge */}
-            <div className="footer-glass-pill px-6 py-2.5 rounded-full flex items-center gap-2 order-1 md:order-2 cursor-default border-[#163B66]">
-              <span className="text-[#E2E8F0] text-[10px] md:text-xs font-mono font-bold uppercase tracking-widest">CRAFTED WITH</span>
-              <span className="animate-footer-heartbeat text-sm md:text-base text-[#D97706]">❤</span>
-              <span className="text-[#E2E8F0] text-[10px] md:text-xs font-mono font-bold uppercase tracking-widest">FOR YOUTH & DEFENCE ASPIRANTS</span>
+            <div className="flex-shrink-0 flex items-center justify-center order-1 lg:order-2">
+              <div className="footer-glass-pill px-5 sm:px-6 py-2.5 rounded-full inline-flex items-center justify-center gap-2 cursor-default border-[#163B66] whitespace-nowrap shadow-sm">
+                <span className="text-[#E2E8F0] text-[10px] md:text-xs font-mono font-bold uppercase tracking-wider sm:tracking-widest leading-none">
+                  CRAFTED WITH
+                </span>
+                <span className="animate-footer-heartbeat text-sm md:text-base text-[#D97706] leading-none select-none origin-center -translate-y-[0.5px]">
+                  ❤
+                </span>
+                <span className="text-[#E2E8F0] text-[10px] md:text-xs font-mono font-bold uppercase tracking-wider sm:tracking-widest leading-none">
+                  FOR YOUTH & DEFENCE ASPIRANTS
+                </span>
+              </div>
             </div>
 
             {/* Back to top */}
-            <MagneticButton
-              as="button"
-              onClick={scrollToTop}
-              className="w-12 h-12 rounded-full footer-glass-pill flex items-center justify-center text-[#E2E8F0] hover:text-white group order-3 border-[#163B66]"
-              aria-label="Back to top"
-            >
-              <svg className="w-5 h-5 transform group-hover:-translate-y-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-              </svg>
-            </MagneticButton>
+            <div className="flex-1 flex items-center justify-center lg:justify-end order-3">
+              <MagneticButton
+                as="button"
+                onClick={scrollToTop}
+                className="w-12 h-12 rounded-full footer-glass-pill flex items-center justify-center text-[#E2E8F0] hover:text-white group border-[#163B66]"
+                aria-label="Back to top"
+              >
+                <svg className="w-5 h-5 transform group-hover:-translate-y-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                </svg>
+              </MagneticButton>
+            </div>
 
           </div>
         </footer>
