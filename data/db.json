@@ -45,14 +45,14 @@
       "id": "n3",
       "title": "महिला सशक्तिकरण व स्वावलंबन: 80+ बेटियों का निःशुल्क डिफेंस व कौशल प्रशिक्षण",
       "body": "ग्रामीण अंचल की बेटियों को सेना व पुलिस भर्ती की फिजिकल तैयारी, आत्मरक्षा, सिलाई-कढ़ाई व कंप्यूटर साक्षरता का 100% निःशुल्क प्रशिक्षण देकर आत्मनिर्भर बनाने का निरंतर महा-अभियान।",
-      "date": "2026-09-22",
+      "date": "2025-11-25",
       "audience": "ALL"
     },
     {
       "id": "n4",
       "title": "पर्यावरण संरक्षण व हरित बैतूल: 500+ पौधरोपण जन-जागरूकता अभियान",
       "body": "रघुकुल डिफेंस एकेडमी व मेरा वतन वेलफेयर फाउंडेशन के कैडेट्स द्वारा पुलिस ग्राउंड एवं विभिन्न सार्वजनिक स्थलों पर 500 से अधिक फलदार व छायादार पौधे रोपे गए तथा उनके संरक्षण का संकल्प लिया गया।",
-      "date": "2026-08-15",
+      "date": "2025-08-15",
       "audience": "ALL"
     }
   ],
@@ -141,35 +141,35 @@
       "name": "Rohit Shrivastav",
       "amount": 1101,
       "frequency": "Monthly",
-      "date": "2024-11-14"
+      "date": "2026-02-14"
     },
     {
       "id": "d2",
       "name": "Abhishek Raghuvanshi",
       "amount": 251,
       "frequency": "Monthly",
-      "date": "2024-08-22"
+      "date": "2025-11-22"
     },
     {
       "id": "d3",
       "name": "Ankit",
       "amount": 251,
       "frequency": "Monthly",
-      "date": "2024-06-18"
+      "date": "2025-08-18"
     },
     {
       "id": "d4",
       "name": "Sanjay Yadav",
       "amount": 251,
       "frequency": "Monthly",
-      "date": "2024-03-25"
+      "date": "2025-04-25"
     }
   ],
   "donations": [
     {
       "id": "don_001",
-      "date": "2024-11-14",
-      "receiptNo": "RCPT-2024-0001",
+      "date": "2026-02-14",
+      "receiptNo": "RCPT-2026-0001",
       "donorName": "Rohit Shrivastav",
       "email": "rohit@example.com",
       "amount": 1101,
@@ -177,8 +177,8 @@
     },
     {
       "id": "don_002",
-      "date": "2024-08-22",
-      "receiptNo": "RCPT-2024-0002",
+      "date": "2025-11-22",
+      "receiptNo": "RCPT-2025-0002",
       "donorName": "Abhishek Raghuvanshi",
       "email": "abhishek@example.com",
       "amount": 251,
@@ -186,8 +186,8 @@
     },
     {
       "id": "don_003",
-      "date": "2024-06-18",
-      "receiptNo": "RCPT-2024-0003",
+      "date": "2025-08-18",
+      "receiptNo": "RCPT-2025-0003",
       "donorName": "Ankit",
       "email": "ankit@example.com",
       "amount": 251,
@@ -195,8 +195,8 @@
     },
     {
       "id": "don_004",
-      "date": "2024-03-25",
-      "receiptNo": "RCPT-2024-0004",
+      "date": "2025-04-25",
+      "receiptNo": "RCPT-2025-0004",
       "donorName": "Sanjay Yadav",
       "email": "sanjay@example.com",
       "amount": 251,

@@ -537,10 +537,14 @@ export default function Home() {
       <section id="notices" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
-          <div className="mb-8">
-            <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#163B66] font-display">
+          <div className="mb-10 text-center sm:text-left">
+            <span className="inline-block px-3.5 py-1 bg-white/90 backdrop-blur-sm text-[#163B66] font-mono text-[11px] font-black uppercase tracking-wider rounded-full mb-3 border border-[#163B66]/15 shadow-xs">
+              Official Updates
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black uppercase text-[#163B66] font-display tracking-tight drop-shadow-sm">
               LATEST NOTICES & BULLETINS
             </h2>
+            <div className="w-20 h-1.5 bg-gradient-to-r from-[#FF9933] to-[#138808] rounded-full mt-3 sm:mx-0 mx-auto"></div>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
@@ -549,8 +553,8 @@ export default function Home() {
                 <div className="flex items-center justify-end font-mono text-xs text-[#64748B] mb-3">
                   <span className="font-bold">{n.date}</span>
                 </div>
-                <h3 className="text-base font-bold text-[#163B66] uppercase mb-2 font-mono">{n.title}</h3>
-                <p className="text-xs text-[#475569] leading-relaxed font-sans font-medium">{n.body}</p>
+                <h3 className="text-base sm:text-lg font-black text-[#163B66] mb-2 font-sans tracking-tight leading-snug">{n.title}</h3>
+                <p className="text-xs sm:text-[13px] text-[#475569] leading-relaxed font-sans font-medium">{n.body}</p>
               </div>
             ))}
           </div>
@@ -565,11 +569,14 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
 
           <div className="text-center mb-12">
-
-            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#163B66] font-display">
+            <span className="inline-block px-4 py-1.5 bg-white/90 backdrop-blur-sm text-[#163B66] font-mono text-[11px] font-black uppercase tracking-wider rounded-full mb-3 border border-[#163B66]/15 shadow-xs">
+              Honour Roll & Acknowledgements
+            </span>
+            <h2 className="text-3xl sm:text-6xl font-black uppercase tracking-tight text-[#163B66] font-display drop-shadow-sm">
               THANK YOU TO OUR DONORS
             </h2>
-            <p className="text-xs sm:text-sm font-mono text-[#64748B] max-w-xl mx-auto mt-2 uppercase font-semibold">
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#FF9933] via-white to-[#138808] mx-auto rounded-full mt-3 mb-3 shadow-xs"></div>
+            <p className="text-xs sm:text-sm font-mono text-[#163B66]/90 max-w-xl mx-auto uppercase font-bold tracking-wide">
               Every contribution supports training kits, physical equipment, and skill certifications.
             </p>
           </div>
