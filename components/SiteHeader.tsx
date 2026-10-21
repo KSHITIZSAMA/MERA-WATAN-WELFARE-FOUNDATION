@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { Heart } from "lucide-react";
 
 const ACTIVITIES = [
   { id: "army-training", href: "/#army-training", label: "Army Training", code: "ACT // 01", desc: "Physical PT, mock written exams & interview prep" },
@@ -92,14 +93,14 @@ export default function SiteHeader() {
             className="flex items-center gap-3 group"
           >
             <div className="w-10 h-10 bg-[#163B66] text-white flex items-center justify-center font-mono font-bold text-lg rounded-xl shadow-md group-hover:bg-[#0D223A] transition-colors">
-              MV
+              MW
             </div>
             <div className="flex flex-col">
               <div className="display text-lg sm:text-xl font-bold tracking-wider text-[#0F172A] leading-none group-hover:text-[#163B66] transition-colors font-display">
-                MERE VATAN
+                MERA WATAN
               </div>
               <span className="font-mono text-[10px] tracking-[0.2em] text-[#D97706] uppercase mt-0.5 font-bold">
-                WELFARE FOUNDATION
+                WELFARE FOUNDATION BETUL
               </span>
             </div>
           </Link>
@@ -199,7 +200,7 @@ export default function SiteHeader() {
               onClick={(e) => handleNavClick(e, "donors")}
               className="text-xs font-mono font-bold tracking-wider uppercase px-5 py-2 bg-[#D97706] text-white hover:bg-[#B45309] transition-colors rounded-xl shadow-md flex items-center gap-1.5"
             >
-              <span>❤</span>
+              <Heart className="w-3.5 h-3.5 fill-white text-white" />
               <span>DONATE</span>
             </Link>
           </div>
@@ -278,8 +279,9 @@ export default function SiteHeader() {
             <Link href="/membership" onClick={() => setMobileOpen(false)} className="px-4 py-2.5 border-2 border-[#163B66] text-center flex-1 font-bold rounded-xl text-[#163B66]">
               JOIN CAUSE
             </Link>
-            <Link href="/#donors" onClick={(e) => handleNavClick(e, "donors")} className="px-4 py-2.5 bg-[#D97706] text-white text-center flex-1 font-bold rounded-xl shadow-md">
-              ❤ DONATE
+            <Link href="/#donors" onClick={(e) => handleNavClick(e, "donors")} className="px-4 py-2.5 bg-[#D97706] text-white text-center flex-1 font-bold rounded-xl shadow-md flex items-center justify-center gap-1.5">
+              <Heart className="w-3.5 h-3.5 fill-white text-white" />
+              <span>DONATE</span>
             </Link>
           </div>
         </nav>

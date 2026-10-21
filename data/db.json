@@ -90,7 +90,7 @@
     },
     {
       "id": "g4",
-      "caption": "Betul Mirror Press Coverage: Free Nutritious Diet Initiative for 160 Cadets (Mere Vatan Welfare Foundation & RDA)",
+      "caption": "Betul Mirror Press Coverage: Free Nutritious Diet Initiative for 160 Cadets (Mera Watan Welfare Foundation & RDA)",
       "category": "Media Coverage"
     },
     {
@@ -118,21 +118,17 @@
   "management": [
     {
       "id": "mg1",
-      "name": "Ashok Raghuwanshi",
-      "role": "Founder & President",
-      "bio": "Founder & President of Mere Vatan Welfare Foundation, Betul. Directing Mission Yuva Shakti, defence coaching, youth empowerment, and rural development initiatives."
+      "name": "DFR Ashok Raghuvanshi",
+      "role": "Founder & President (Retd. Indian Army)",
+      "bio": "DFR Ashok Raghuvanshi (Retd. Indian Army), Founder & President of Mera Watan Welfare Foundation Betul. Dedicated to youth defence coaching, physical discipline, and community welfare initiatives.",
+      "image": "/images/ashok-raghuvanshi-brahmos.jpg"
     },
     {
       "id": "mg2",
-      "name": "Smt. Sunita Raghuwanshi",
+      "name": "Ravi Pawar",
       "role": "Secretary & Women Empowerment Lead",
-      "bio": "Directing women self-reliance workshops, computer literacy, vocational skill programs, and career counselling."
-    },
-    {
-      "id": "mg3",
-      "name": "Subedar (Retd.) R. S. Verma",
-      "role": "Chief Defence Physical Instructor",
-      "bio": "Ex-Indian Army drill instructor leading 1.6km speed endurance drills, obstacle courses, and physical fitness assessments."
+      "bio": "Head Coach & Secretary at Mera Watan Welfare Foundation Betul. Leading physical training regimens, women self-reliance & vocational empowerment workshops, and youth athletic excellence.",
+      "image": "/images/ravi-pawar-real.jpg"
     }
   ],
   "donors": [

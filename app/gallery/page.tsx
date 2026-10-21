@@ -89,7 +89,7 @@ const ALL_PHOTOS: ArchivePhoto[] = [
   },
   {
     id: "p9",
-    caption: "Betul Mirror Press Coverage: Free Nutritious Diet Initiative for 160 Cadets (Mere Vatan Welfare Foundation & RDA)",
+    caption: "Betul Mirror Press Coverage: Free Nutritious Diet Initiative for 160 Cadets (Mera Watan Welfare Foundation & RDA)",
     category: "Media Coverage",
     src: "/images/news-betul-mirror.jpg",
     batchDate: "PRESS COVERAGE • BETUL MIRROR",
@@ -131,7 +131,7 @@ export default function GalleryArchivePage() {
             Complete Photographic Archive
           </div>
           <h1 className="text-3xl md:text-5xl font-black font-display tracking-tight text-white mb-3 uppercase">
-            Mere Vatan Photo & Activity Archive
+            Mera Watan Photo & Activity Archive
           </h1>
           <p className="text-gray-200 max-w-3xl text-sm md:text-base leading-relaxed font-sans">
             Explore the complete photographic record of our ground drills, athletic tournaments, tree plantation drives, women empowerment honors, and leadership conclaves.

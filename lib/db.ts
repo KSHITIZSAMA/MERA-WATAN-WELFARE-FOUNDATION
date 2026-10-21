@@ -34,7 +34,7 @@ export interface DbShape {
   events: Array<{ id: string; title: string; date: string; location: string; description: string }>;
   gallery: Array<{ id: string; caption: string; category: string }>;
   testimonials: Array<{ id: string; name: string; program: string; quote: string; year: string }>;
-  management: Array<{ id: string; name: string; role: string; bio: string }>;
+  management: Array<{ id: string; name: string; role: string; bio: string; image?: string }>;
   donors: Array<{ id: string; name: string; amount: number; date: string; frequency?: string }>;
   donations: Array<{
     id: string;

@@ -37,7 +37,7 @@ export async function sendCadetNotificationToOwner(payload: CadetRegistrationEma
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; background-color: #f4f6f9; padding: 25px; border-radius: 12px; color: #0f172a; max-width: 600px; margin: 0 auto; border: 2px solid #163b66;">
         <div style="background-color: #163b66; color: #ffffff; padding: 15px 20px; border-radius: 8px 8px 0 0; text-align: center;">
-          <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">🚩 MERE VATAN WELFARE FOUNDATION</h2>
+          <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">🚩 MERA WATAN WELFARE FOUNDATION</h2>
           <p style="margin: 4px 0 0 0; font-size: 12px; color: #ff9933; font-weight: bold;">NEW CADET REGISTRATION FORM</p>
         </div>
 
@@ -77,13 +77,13 @@ export async function sendCadetNotificationToOwner(payload: CadetRegistrationEma
         </div>
 
         <div style="text-align: center; margin-top: 15px; font-size: 11px; color: #64748b;">
-          Mere Vatan Welfare Foundation · Betul, MP · Email Notification System
+          Mera Watan Welfare Foundation · Betul, MP · Email Notification System
         </div>
       </div>
     `;
 
     await transporter.sendMail({
-      from: `"Mere Vatan Website" <${smtpUser}>`,
+      from: `"Mera Watan Website" <${smtpUser}>`,
       to: ownerEmail,
       subject: `🚩 New Cadet Registration: ${payload.name} (${payload.program})`,
       html: htmlContent,
@@ -130,7 +130,7 @@ export async function sendContactNotificationToOwner(payload: ContactMessageEmai
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; background-color: #f4f6f9; padding: 25px; border-radius: 12px; color: #0f172a; max-width: 600px; margin: 0 auto; border: 2px solid #163b66;">
         <div style="background-color: #163b66; color: #ffffff; padding: 15px 20px; border-radius: 8px 8px 0 0; text-align: center;">
-          <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">✉️ MERE VATAN WELFARE FOUNDATION</h2>
+          <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">✉️ MERA WATAN WELFARE FOUNDATION</h2>
           <p style="margin: 4px 0 0 0; font-size: 12px; color: #ff9933; font-weight: bold;">NEW DIRECT ENQUIRY / MESSAGE</p>
         </div>
 
@@ -154,13 +154,13 @@ export async function sendContactNotificationToOwner(payload: ContactMessageEmai
         </div>
 
         <div style="text-align: center; margin-top: 15px; font-size: 11px; color: #64748b;">
-          Mere Vatan Welfare Foundation · Sent to ${ownerEmail}
+          Mera Watan Welfare Foundation · Sent to ${ownerEmail}
         </div>
       </div>
     `;
 
     await transporter.sendMail({
-      from: `"Mere Vatan Website" <${smtpUser}>`,
+      from: `"Mera Watan Website" <${smtpUser}>`,
       to: ownerEmail,
       subject: `✉️ New Foundation Enquiry from ${payload.name}`,
       html: htmlContent,

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Heart, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { db } from "@/lib/db";
 import ContactSection from "@/components/ContactSection";
 import ScrollButton from "@/components/ScrollButton";
@@ -50,10 +51,10 @@ export default function Home() {
               {/* High-Impact Dual Tone Heading */}
               <div className="space-y-1">
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#163B66] leading-[1.05] font-display">
-                  MERE VATAN
+                  MERA WATAN
                 </h1>
                 <div className="text-2xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-[#D97706] leading-tight font-display">
-                  WELFARE FOUNDATION
+                  WELFARE FOUNDATION BETUL
                 </div>
               </div>
 
@@ -75,7 +76,8 @@ export default function Home() {
                   href="/donate"
                   className="px-7 py-4 bg-[#163B66] text-white font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#0D223A] transition-all shadow-xl rounded-xl flex items-center gap-2 border-b-4 border-[#0D223A]"
                 >
-                  <span>❤ DONATE</span>
+                  <Heart className="w-3.5 h-3.5 fill-white text-white" />
+                  <span>DONATE</span>
                 </Link>
                 <ScrollButton
                   targetId="about"
@@ -88,7 +90,7 @@ export default function Home() {
               {/* Impact Stat Banner */}
               <div className="mt-8 bg-[#163B66] text-white p-5 sm:p-6 shadow-2xl flex items-center gap-5 border-l-8 border-[#D97706] rounded-2xl border border-[#205493]/60 relative overflow-hidden">
                 <div className="text-4xl sm:text-5xl font-mono font-extrabold text-[#FF9933] shrink-0">
-                  <StatCounter end={98} suffix="+" />
+                  <StatCounter end={270} suffix="+" />
                 </div>
                 <div>
                   <div className="text-xs font-mono font-bold text-[#FF9933] uppercase tracking-widest">
@@ -113,11 +115,11 @@ export default function Home() {
                 <div className="relative bg-[#0D223A] border-4 border-[#163B66] rounded-3xl overflow-hidden shadow-2xl p-2.5">
                   <div className="relative h-[480px] sm:h-[540px] w-full rounded-2xl overflow-hidden bg-[#071526]">
                     <Image
-                      src="/images/hero-officer.png"
-                      alt="Mere Vatan Welfare Foundation Leadership & Defence Mentorship"
+                      src="/images/ashok-raghuvanshi-hero.jpg"
+                      alt="Mera Watan Welfare Foundation Founder Ashok Raghuvanshi (Ex-Army)"
                       fill
                       priority
-                      className="object-cover object-top filter contrast-105 brightness-100 transform hover:scale-105 transition-transform duration-700"
+                      className="object-cover object-center filter contrast-105 brightness-100 transform hover:scale-105 transition-transform duration-700"
                     />
 
 
@@ -125,11 +127,11 @@ export default function Home() {
                     <div className="absolute bottom-4 inset-x-4 z-20">
                       <div className="p-4 bg-[#163B66]/90 backdrop-blur-md border border-[#D97706]/50 rounded-xl text-white shadow-xl">
                         <div className="flex items-center justify-between font-mono text-[11px] font-bold text-[#FF9933] uppercase tracking-wider mb-1">
-                          <span>FOUNDATION LEADERSHIP</span>
-                          <span className="bg-[#D97706] text-white px-2 py-0.5 rounded text-[9px]">OFFICER MENTOR</span>
+                          <span>FOUNDER & PRESIDENT</span>
+                          <span className="bg-[#D97706] text-white px-2 py-0.5 rounded text-[9px] font-bold">INDIAN ARMY (RETD.)</span>
                         </div>
                         <p className="text-xs font-mono text-gray-200 leading-snug font-semibold">
-                          Guiding youth towards national service, discipline, physical agility & moral integrity.
+                          DFR Ashok Raghuvanshi (Retd. Indian Army) — Guiding youth towards national service, discipline & fitness.
                         </p>
                       </div>
                     </div>
@@ -144,7 +146,7 @@ export default function Home() {
           {/* Bottom 4-Item Quick Trust Metrics Bar */}
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="p-4 bg-white/80 backdrop-blur-sm border border-[#163B66]/15 rounded-2xl shadow-sm text-center">
-              <div className="text-2xl font-black font-mono text-[#163B66]">98+</div>
+              <div className="text-2xl font-black font-mono text-[#163B66]">270+</div>
               <div className="text-[11px] font-mono font-bold text-[#64748B] uppercase mt-0.5">Defence Selections</div>
             </div>
             <div className="p-4 bg-white/80 backdrop-blur-sm border border-[#163B66]/15 rounded-2xl shadow-sm text-center">
@@ -223,8 +225,8 @@ export default function Home() {
                 <p className="text-base sm:text-lg italic font-sans leading-relaxed text-[#334155] max-w-4xl">
                   "We started this foundation with one belief — that discipline, physical fitness, and skill self-reliance can transform a family's economic future in a single generation. Every batch we run, every cadet we mentor, is a step toward a stronger nation."
                 </p>
-                <div className="mt-4 font-mono text-sm font-bold text-[#163B66] uppercase">
-                  {president.name} — <span className="text-[#D97706]">{president.role}</span>
+                <div className="mt-4 font-mono text-sm font-bold text-[#163B66]">
+                  {president.name} — <span className="text-[#D97706] uppercase">{president.role}</span>
                 </div>
               </div>
             </div>
@@ -234,32 +236,98 @@ export default function Home() {
           <div className="space-y-6 mb-16">
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#163B66]/10 border border-[#163B66]/20 text-[#163B66] font-mono text-xs font-bold tracking-widest uppercase shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#163B66]" />
-              <span>FOUNDATION LEADERSHIP &amp; INSTRUCTORS</span>
+              <span>FOUNDATION LEADERSHIP &amp; MANAGEMENT</span>
             </div>
-            <div className="grid sm:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 gap-8 max-w-5xl">
               {data.management.map((m) => (
-                <div key={m.id} className="bg-white p-6 rounded-3xl border border-[#163B66]/15 shadow-md hover:shadow-xl transition-all">
-                  <h3 className="text-xl font-bold uppercase font-display text-[#163B66] mb-1">{m.name}</h3>
-                  <div className="text-xs font-mono text-[#D97706] font-bold mb-3">{m.role}</div>
-                  <p className="text-xs font-sans text-[#475569] leading-relaxed font-medium">{m.bio}</p>
+                <div key={m.id} className="bg-white rounded-3xl border border-[#163B66]/15 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col">
+                  {m.image ? (
+                    <div className="relative h-72 sm:h-80 w-full bg-[#0D223A] overflow-hidden">
+                      <Image
+                        src={m.image}
+                        alt={m.name}
+                        fill
+                        className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-48 w-full bg-gradient-to-br from-[#163B66] to-[#0D223A] flex items-center justify-center text-white/40 font-mono text-sm">
+                      [ Photo Reserved ]
+                    </div>
+                  )}
+                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold font-sans text-[#163B66] mb-1">{m.name}</h3>
+                      <div className="text-xs font-mono text-[#D97706] font-bold mb-3 uppercase tracking-wider">{m.role}</div>
+                      <p className="text-xs sm:text-sm font-sans text-[#475569] leading-relaxed font-medium">{m.bio}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Core Objectives */}
-          <div className="bg-[#0D223A] text-white p-8 sm:p-10 rounded-3xl border-t-4 border-[#D97706] shadow-xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FF9933] font-mono text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#FF9933]" />
-              <span>CORE OBJECTIVES &amp; FOUNDATION VALUES</span>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {data.objectives.map((obj, i) => (
-                <div key={i} className="bg-[#163B66]/80 border-l-4 border-[#D97706] p-4 text-xs font-mono leading-relaxed text-gray-200 rounded-xl border border-[#205493]/40">
-                  <span className="text-[#FF9933] font-bold mr-2">[ 0{i + 1} ]</span>
-                  {obj}
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0B1E33] via-[#0D223A] to-[#071322] border-2 border-[#163B66]/60 p-8 sm:p-12 shadow-2xl">
+            {/* Ambient glows inside */}
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D97706]/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#163B66]/40 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Header */}
+            <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-8 border-b border-[#163B66]">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF9933]/15 border border-[#FF9933]/30 text-[#FF9933] font-mono text-[11px] font-bold tracking-widest uppercase mb-3 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#FF9933] animate-pulse" />
+                  <span>Strategic Roadmap &amp; Mission</span>
                 </div>
-              ))}
+                <h3 className="text-2xl sm:text-4xl font-black uppercase text-white font-display tracking-tight">
+                  Core Objectives &amp; Foundation Values
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm text-[#94A3B8] font-sans max-w-md font-medium leading-relaxed">
+                Empowering rural youth through discipline, physical agility, women self-reliance, and transparent social governance.
+              </p>
+            </div>
+
+            {/* 6 Objective Cards Grid */}
+            <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {data.objectives.map((obj, i) => {
+                const parts = obj.split(":");
+                const title = parts[0]?.trim();
+                const desc = parts.slice(1).join(":").trim() || obj;
+
+                return (
+                  <div
+                    key={i}
+                    className="group relative bg-[#0F2847]/70 hover:bg-[#163B66] border border-[#205493]/40 hover:border-[#FF9933]/60 p-6 rounded-2xl shadow-md transition-all duration-300 flex flex-col justify-between hover:-translate-y-1"
+                  >
+                    <div>
+                      {/* Top Bar with Pillar Tag */}
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="font-mono text-xs font-bold tracking-wider text-[#FF9933] bg-[#0D223A] px-3 py-1 rounded-lg border border-[#205493]/50">
+                          PILLAR 0{i + 1}
+                        </span>
+                        <div className="w-2 h-2 rounded-full bg-[#D97706]/70 group-hover:scale-125 group-hover:bg-[#FF9933] transition-all" />
+                      </div>
+
+                      {/* Title */}
+                      <h4 className="text-white font-bold font-sans text-base leading-snug mb-2 group-hover:text-[#FF9933] transition-colors">
+                        {title}
+                      </h4>
+
+                      {/* Description */}
+                      <p className="text-xs sm:text-[13px] text-[#94A3B8] font-sans leading-relaxed font-normal">
+                        {desc}
+                      </p>
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t border-white/5 flex items-center gap-1.5 text-[10px] font-mono text-[#D97706] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span>Explore Pillar</span>
+                      <span>→</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -640,10 +708,22 @@ export default function Home() {
               <div className="bg-[#0D223A] text-white p-8 rounded-3xl shadow-xl border-l-8 border-[#D97706] border border-[#205493]">
                 <h3 className="text-lg font-bold uppercase font-mono mb-4 text-[#FF9933]">HEADQUARTERS CONTACT</h3>
                 <ul className="space-y-3 font-mono text-xs text-gray-200">
-                  <li>📍 BETUL, MADHYA PRADESH, INDIA</li>
-                  <li>📞 +91 97976 33077 (CALL / WHATSAPP)</li>
-                  <li>✉️ RAGHUWANSHIASHOK34@GMAIL.COM</li>
-                  <li>⏰ 05:30 AM - 07:00 PM IST</li>
+                  <li className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-[#FF9933] shrink-0" />
+                    <span>BETUL, MADHYA PRADESH, INDIA</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-[#FF9933] shrink-0" />
+                    <span>+91 97976 33077 (CALL / WHATSAPP)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-[#FF9933] shrink-0" />
+                    <span>RAGHUWANSHIASHOK34@GMAIL.COM</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-[#FF9933] shrink-0" />
+                    <span>05:30 AM - 07:00 PM IST</span>
+                  </li>
                 </ul>
               </div>
 

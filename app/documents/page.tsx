@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "NGO Official Documents & Registration | Mere Vatan Welfare Foundation",
-  description: "View official registration certificates, 80G tax exemption, 12A registration, NITI Aayog Darpan ID, and audited financial statements of Mere Vatan Welfare Foundation.",
+  title: "NGO Official Documents & Registration | Mera Watan Welfare Foundation Betul",
+  description: "View official registration certificates, 80G tax exemption, 12A registration, NITI Aayog Darpan ID, and audited financial statements of Mera Watan Welfare Foundation Betul.",
 };
 
 const DOCUMENTS = [
@@ -15,7 +15,7 @@ const DOCUMENTS = [
     authority: "Income Tax Department, Govt. of India",
     date: "April 12, 2024",
     status: "Active & Valid",
-    description: "Donations to Mere Vatan Welfare Foundation are 50% tax exempt under Section 80G of the Income Tax Act, 1961.",
+    description: "Donations to Mera Watan Welfare Foundation are 50% tax exempt under Section 80G of the Income Tax Act, 1961.",
     size: "1.8 MB • PDF",
     fileUrl: "#",
     icon: "📜",
@@ -43,7 +43,7 @@ const DOCUMENTS = [
     authority: "Registrar of Societies & Sports Academies",
     date: "January 15, 2024",
     status: "Registered",
-    description: "Legal founding document certifying the establishment of Mere Vatan Welfare Foundation as a registered society.",
+    description: "Legal founding document certifying the establishment of Mera Watan Welfare Foundation as a registered society.",
     size: "2.4 MB • PDF",
     fileUrl: "#",
     icon: "📑",
@@ -113,7 +113,7 @@ export default function DocumentsPage() {
             NGO Registration & Compliance Documents
           </h1>
           <p className="text-[#CFD3C7] max-w-3xl text-sm md:text-base leading-relaxed font-sans">
-            Mere Vatan Welfare Foundation operates with 100% legal transparency and governance. Below are our verified government registration certificates, 80G tax exemption documents, 12A trust certificates, and audited financial statements.
+            Mera Watan Welfare Foundation operates with 100% legal transparency and governance. Below are our verified government registration certificates, 80G tax exemption documents, 12A trust certificates, and audited financial statements.
           </p>
 
           {/* Quick Stat Pill */}

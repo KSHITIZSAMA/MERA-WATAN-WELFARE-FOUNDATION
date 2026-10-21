@@ -60,7 +60,7 @@ export default function MembershipPage() {
         <div className="bg-[#163B66] text-white p-8 md:p-12 rounded-3xl shadow-xl relative overflow-hidden mb-12 border-b-8 border-[#D97706]">
 
           <h1 className="text-3xl md:text-5xl font-black font-display uppercase tracking-tight text-white mb-3">
-            Join Mere Vatan Welfare Foundation
+            Join Mera Watan Welfare Foundation Betul
           </h1>
           <p className="text-gray-200 text-sm md:text-base font-body max-w-2xl leading-relaxed">
             Apply for any of our three specialized wings: Army & Defence Entrance Training, Women Empowerment Workshops, or Sports & Physical Fitness Coaching.

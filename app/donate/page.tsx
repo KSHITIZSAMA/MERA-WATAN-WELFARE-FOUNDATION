@@ -75,7 +75,7 @@ export default function DonatePage() {
         <div className="bg-[#163B66] text-white p-8 md:p-12 rounded-3xl shadow-xl relative overflow-hidden mb-12 border-b-8 border-[#D97706]">
 
           <h1 className="text-3xl md:text-5xl font-black uppercase font-display tracking-tight text-white mb-3">
-            Support Mere Vatan Welfare Foundation
+            Support Mera Watan Welfare Foundation Betul
           </h1>
           <p className="text-gray-200 max-w-3xl text-sm md:text-base leading-relaxed font-body">
             Every contribution directly funds free physical defence coaching for rural youth, women self-reliance workshops, sports trials, tree plantation drives, and essential equipment.
@@ -102,7 +102,7 @@ export default function DonatePage() {
               <div className="p-4 bg-[#F8FAFC] rounded-2xl border border-gray-200 space-y-2 text-xs font-mono text-[#334155]">
                 <div className="flex justify-between border-b pb-1.5 border-gray-200">
                   <span className="text-[#64748B]">Account Name:</span>
-                  <span className="font-bold text-[#163B66]">MERE VATAN WELFARE FOUNDATION</span>
+                  <span className="font-bold text-[#163B66]">MERA WATAN WELFARE FOUNDATION BETUL</span>
                 </div>
                 <div className="flex justify-between border-b pb-1.5 border-gray-200">
                   <span className="text-[#64748B]">Bank Name:</span>

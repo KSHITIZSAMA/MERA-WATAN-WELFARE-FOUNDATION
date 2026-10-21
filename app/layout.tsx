@@ -6,9 +6,9 @@ import CustomCursor from "@/components/CustomCursor";
 import MobileDock from "@/components/MobileDock";
 
 export const metadata: Metadata = {
-  title: "Mere Vatan Welfare Foundation | Army Training & Fitness",
+  title: "Mera Watan Welfare Foundation Betul | Army Training & Fitness",
   description:
-    "Preparing youth for the armed forces, equipping women with livelihood skills, and building a fitter community in Lucknow.",
+    "Preparing youth for the armed forces, equipping women with livelihood skills, and building a fitter community in Betul, MP.",
 };
 
 export default function RootLayout({

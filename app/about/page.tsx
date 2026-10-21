@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import { db } from "@/lib/db";
 
@@ -10,7 +11,7 @@ export default function AboutPage() {
     <div className="bg-[#F4F6F9] min-h-screen text-[#0F172A]">
       {/* Hero Header */}
       <PageHero
-        eyebrow="ABOUT MERE VATAN WELFARE FOUNDATION"
+        eyebrow="ABOUT MERA WATAN WELFARE FOUNDATION BETUL"
         title="Who We Are & Mission Yuva Shakti"
         subtitle="Empowering rural and economically weaker youth across Betul and Madhya Pradesh through integrated Defence Career Preparation, Women Empowerment, Digital Skill Development, and Sports Leadership."
       />
@@ -51,10 +52,10 @@ export default function AboutPage() {
                 <span>FOUNDER &amp; PRESIDENT&apos;S ADDRESS</span>
               </div>
               <p className="text-base sm:text-lg italic font-sans leading-relaxed text-[#334155] max-w-3xl">
-                "Mera Vatan Welfare Foundation was established with a singular conviction — that discipline, physical fitness, and career-oriented skills can transform a family's economic future in a single generation. Our flagship project, Mission Yuva Shakti, is designed not just for examination coaching, but to make youth career-ready, skill-ready, and employment-ready."
+                "Mera Watan Welfare Foundation Betul was established with a singular conviction — that discipline, physical fitness, and career-oriented skills can transform a family's economic future in a single generation. Our flagship project, Mission Yuva Shakti, is designed not just for examination coaching, but to make youth career-ready, skill-ready, and employment-ready."
               </p>
-              <div className="mt-4 font-mono text-sm font-bold text-[#163B66] uppercase">
-                {president.name} — <span className="text-[#D97706]">{president.role}</span>
+              <div className="mt-4 font-mono text-sm font-bold text-[#163B66]">
+                {president.name} — <span className="text-[#D97706] uppercase">{president.role}</span>
               </div>
             </div>
           </div>
@@ -280,17 +281,35 @@ export default function AboutPage() {
             👥 LEADERSHIP & GOVERNING BODY
           </div>
           <h2 className="text-3xl sm:text-4xl font-black uppercase text-[#163B66] font-display">
-            Who Runs Mere Vatan Welfare Foundation
+            Who Runs Mera Watan Welfare Foundation Betul
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-8 max-w-5xl">
           {data.management.map((m) => (
-            <div key={m.id} className="bg-white p-6 rounded-3xl border border-[#163B66]/15 shadow-md hover:shadow-xl transition-all">
-              <div className="font-mono text-xs text-[#D97706] mb-1.5 font-bold">LEADERSHIP • {m.id}</div>
-              <h3 className="text-xl font-bold uppercase font-display text-[#163B66] mb-1">{m.name}</h3>
-              <div className="text-xs font-mono text-[#D97706] font-bold mb-3">{m.role}</div>
-              <p className="text-xs font-sans text-[#475569] leading-relaxed font-medium">{m.bio}</p>
+            <div key={m.id} className="bg-white rounded-3xl border border-[#163B66]/15 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col">
+              {m.image ? (
+                <div className="relative h-72 sm:h-80 w-full bg-[#0D223A] overflow-hidden">
+                  <Image
+                    src={m.image}
+                    alt={m.name}
+                    fill
+                    className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ) : (
+                <div className="h-48 w-full bg-gradient-to-br from-[#163B66] to-[#0D223A] flex items-center justify-center text-white/40 font-mono text-sm">
+                  [ Photo Reserved ]
+                </div>
+              )}
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="font-mono text-xs text-[#D97706] mb-1.5 font-bold">LEADERSHIP • {m.id}</div>
+                  <h3 className="text-xl font-bold font-sans text-[#163B66] mb-1">{m.name}</h3>
+                  <div className="text-xs font-mono text-[#D97706] font-bold mb-3 uppercase tracking-wider">{m.role}</div>
+                  <p className="text-xs sm:text-sm font-sans text-[#475569] leading-relaxed font-medium">{m.bio}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

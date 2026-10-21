@@ -29,7 +29,7 @@ export function generateDonationReceiptPDF({
 0.086 0.231 0.4 1 rg
 20 780 555 35 re f
 1 1 1 rg
-BT /F2 16 Tf 35 792 Td (MERE VATAN WELFARE FOUNDATION) Tj ET
+BT /F2 16 Tf 35 792 Td (MERA WATAN WELFARE FOUNDATION BETUL) Tj ET
 BT /F1 9 Tf 35 782 Td (Reg. No: RJ/2024/0488921 | Section 80G & 12A Tax Exempted NGO) Tj ET
 
 0 0 0 rg
@@ -61,7 +61,7 @@ BT /F2 12 Tf 65 554 Td (AMOUNT CONTRIBUTED:) Tj ET
 BT /F2 14 Tf 240 554 Td (${safeAmount}) Tj ET
 
 0.2 0.25 0.3 rg
-BT /F1 9 Tf 35 480 Td (Note: Contributions to Mere Vatan Welfare Foundation are eligible for Tax Deduction under Section 80G) Tj ET
+BT /F1 9 Tf 35 480 Td (Note: Contributions to Mera Watan Welfare Foundation are eligible for Tax Deduction under Section 80G) Tj ET
 BT /F1 9 Tf 35 465 Td (of the Income Tax Act. Please preserve this computer-generated receipt for your tax filings.) Tj ET
 
 0.85 0.47 0.02 RG 1 w 35 445 m 565 445 l S
@@ -70,8 +70,8 @@ BT /F1 9 Tf 35 465 Td (of the Income Tax Act. Please preserve this computer-gene
 BT /F1 9 Tf 35 410 Td (Head Office: Betul & Neighboring Rural Belts, Madhya Pradesh, India) Tj ET
 BT /F1 9 Tf 35 395 Td (Contact: +91 9797633077 | Email: raghuwanshiashok34@gmail.com) Tj ET
 
-BT /F2 10 Tf 410 380 Td (For Mere Vatan Welfare Foundation) Tj ET
-BT /F1 9 Tf 410 330 Td (Authorized Signatory / Founder) Tj ET
+BT /F2 10 Tf 380 380 Td (For Mera Watan Welfare Foundation Betul) Tj ET
+BT /F1 9 Tf 370 330 Td (Authorized Signatory / DFR Ashok Raghuvanshi (Retd. Indian Army)) Tj ET
 `;
 
   const objects = [

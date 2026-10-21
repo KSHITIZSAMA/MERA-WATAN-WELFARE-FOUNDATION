@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Camera, Video, FileText, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Register ScrollTrigger safely for React
@@ -305,7 +306,7 @@ export function CinematicFooter() {
           ref={giantTextRef}
           className="footer-giant-bg-text absolute -bottom-[2vh] left-1/2 -translate-x-1/2 whitespace-nowrap z-0 pointer-events-none select-none font-display uppercase"
         >
-          MERE VATAN
+          MERA WATAN
         </div>
 
         {/* 1. Sleek Continuous Marquee Ticker */}
@@ -322,7 +323,7 @@ export function CinematicFooter() {
           <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 mt-20 sm:mt-24 w-full max-w-5xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#163B66] text-[#FF9933] font-mono text-xs font-bold uppercase tracking-widest mb-3 rounded-full border border-[#D97706]/40 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF9933]" />
-              <span>MERE VATAN WELFARE FOUNDATION</span>
+              <span>MERA WATAN WELFARE FOUNDATION BETUL</span>
             </div>
 
             <h2
@@ -364,7 +365,7 @@ export function CinematicFooter() {
                   rel="noopener noreferrer"
                   className="footer-glass-pill px-5 py-2.5 rounded-full text-[#E2E8F0] font-mono text-xs hover:text-white uppercase tracking-wider flex items-center gap-2 border-[#163B66]/60"
                 >
-                  <span className="text-[#FF9933]">📷</span>
+                  <Camera className="w-3.5 h-3.5 text-[#FF9933]" />
                   Instagram
                 </MagneticButton>
                 <MagneticButton
@@ -374,7 +375,7 @@ export function CinematicFooter() {
                   rel="noopener noreferrer"
                   className="footer-glass-pill px-5 py-2.5 rounded-full text-[#E2E8F0] font-mono text-xs hover:text-white uppercase tracking-wider flex items-center gap-2 border-[#163B66]/60"
                 >
-                  <span className="text-red-500">▶</span>
+                  <Video className="w-3.5 h-3.5 text-red-500" />
                   YouTube Channel
                 </MagneticButton>
                 <MagneticButton
@@ -382,7 +383,7 @@ export function CinematicFooter() {
                   href="/documents"
                   className="footer-glass-pill px-5 py-2.5 rounded-full text-[#E2E8F0] font-mono text-xs hover:text-white uppercase tracking-wider flex items-center gap-2 border-[#163B66]/60"
                 >
-                  <span className="text-[#FF9933]">📜</span>
+                  <FileText className="w-3.5 h-3.5 text-[#FF9933]" />
                   NGO Documents
                 </MagneticButton>
                 <MagneticButton
@@ -390,7 +391,7 @@ export function CinematicFooter() {
                   onClick={() => handleScrollTo("contact")}
                   className="footer-glass-pill px-5 py-2.5 rounded-full text-[#E2E8F0] font-mono text-xs hover:text-white uppercase tracking-wider flex items-center gap-2 border-[#163B66]/60"
                 >
-                  <span className="text-[#FF9933]">🎖️</span>
+                  <Award className="w-3.5 h-3.5 text-[#FF9933]" />
                   Careers &amp; Instructors
                 </MagneticButton>
               </div>
@@ -403,7 +404,7 @@ export function CinematicFooter() {
             {/* Copyright */}
             <div className="flex-1 flex items-center justify-center lg:justify-start order-2 lg:order-1 text-center lg:text-left">
               <span className="text-[#E2E8F0] text-[10px] md:text-xs font-mono tracking-wider md:tracking-widest uppercase">
-                © 2026 MERE VATAN WELFARE FOUNDATION. ALL RIGHTS RESERVED.
+                © 2026 MERA WATAN WELFARE FOUNDATION BETUL. ALL RIGHTS RESERVED.
               </span>
             </div>
 
