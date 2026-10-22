@@ -348,7 +348,7 @@ export function CinematicFooter() {
 
                 <MagneticButton
                   as="button"
-                  onClick={() => handleScrollTo("activities")}
+                  onClick={() => handleScrollTo("wings")}
                   className="footer-glass-pill px-8 py-4 rounded-full text-white font-mono font-bold text-xs md:text-sm uppercase tracking-widest flex items-center gap-3 group border-[#163B66]/80 bg-[#163B66]/40 hover:bg-[#163B66]"
                 >
                   <span className="w-2.5 h-2.5 rounded-full bg-[#38BDF8] group-hover:scale-125 transition-transform" />
@@ -358,6 +358,14 @@ export function CinematicFooter() {
 
               {/* Secondary Navigation & Social / NGO Links */}
               <div className="flex flex-wrap justify-center gap-3 md:gap-4 w-full mt-2">
+                <MagneticButton
+                  as="button"
+                  onClick={() => handleScrollTo("activities")}
+                  className="footer-glass-pill px-5 py-2.5 rounded-full text-[#E2E8F0] font-mono text-xs hover:text-white uppercase tracking-wider flex items-center gap-2 border-[#163B66]/60"
+                >
+                  <Award className="w-3.5 h-3.5 text-[#FF9933]" />
+                  Activities
+                </MagneticButton>
                 <MagneticButton
                   as="a"
                   href="https://instagram.com"
@@ -391,7 +399,7 @@ export function CinematicFooter() {
                   onClick={() => handleScrollTo("contact")}
                   className="footer-glass-pill px-5 py-2.5 rounded-full text-[#E2E8F0] font-mono text-xs hover:text-white uppercase tracking-wider flex items-center gap-2 border-[#163B66]/60"
                 >
-                  <Award className="w-3.5 h-3.5 text-[#FF9933]" />
+                  <span className="w-2 h-2 rounded-full bg-[#FF9933]" />
                   Careers &amp; Instructors
                 </MagneticButton>
               </div>

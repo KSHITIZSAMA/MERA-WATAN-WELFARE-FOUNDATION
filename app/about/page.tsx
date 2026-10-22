@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import { db } from "@/lib/db";
+import { Briefcase, ShieldCheck, TrendingUp, MapPin, Users, Award, Laptop, FileText } from "lucide-react";
 
 export default function AboutPage() {
   const data = db.read();
@@ -18,25 +19,134 @@ export default function AboutPage() {
 
       {/* 1. Core Vision & Tagline Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 -mt-8 relative z-20">
-        <div className="bg-[#163B66] text-white p-8 sm:p-12 rounded-3xl shadow-2xl border-b-8 border-[#D97706]">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="bg-[#163B66] text-white p-8 sm:p-12 rounded-3xl shadow-2xl border-b-8 border-[#D97706] relative overflow-hidden">
+          {/* Subtle background ambient glows */}
+          <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#D97706]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#0D223A]/80 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Top row: Flagship title & Key impact counters */}
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-[#205493]/70">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D97706]/20 border border-[#D97706]/50 text-[#FF9933] font-mono text-[11px] font-bold tracking-widest uppercase mb-3">
-                <span>🇮🇳 FLAGSHIP INITIATIVE: MISSION YUVA SHAKTI (2026–27)</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D97706]/20 border border-[#D97706]/50 text-[#FF9933] font-mono text-[11px] font-bold tracking-widest uppercase mb-3 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#FF9933] animate-pulse" />
+                <span>FLAGSHIP INITIATIVE: MISSION YUVA SHAKTI (2026–27)</span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-black font-display uppercase text-white tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-black font-display uppercase text-white tracking-tight leading-tight">
                 "हर युवा को हुनर, हर हाथ को अवसर"
               </h2>
-              <p className="text-gray-200 text-sm sm:text-base font-body mt-2 max-w-3xl leading-relaxed">
+              <p className="text-gray-200 text-sm sm:text-base font-sans mt-2 max-w-3xl leading-relaxed font-normal">
                 Building a structured ecosystem for 300 direct beneficiaries and 1,000+ rural family members in Betul & surrounding rural regions of Madhya Pradesh.
               </p>
             </div>
 
-            <div className="shrink-0 space-y-2 bg-[#0D223A] p-4 rounded-2xl border border-[#205493]">
-              <div className="text-xs font-mono text-[#FF9933] font-bold uppercase tracking-wider">🎯 THREE GUIDING PILLARS</div>
-              <div className="text-xs font-mono text-white">• हुनर से रोजगार (Skill to Employment)</div>
-              <div className="text-xs font-mono text-white">• अनुशासन से नेतृत्व (Discipline to Leadership)</div>
-              <div className="text-xs font-mono text-white">• अवसर से आत्मनिर्भरता (Opportunity to Self-Reliance)</div>
+            {/* Impact metric pills */}
+            <div className="grid grid-cols-2 gap-3 shrink-0 font-mono text-center w-full sm:w-auto">
+              <div className="bg-[#0D223A]/90 p-4 rounded-2xl border border-[#205493] shadow-md min-w-[130px]">
+                <div className="text-2xl font-black text-[#FF9933]">300</div>
+                <div className="text-[11px] text-gray-300 uppercase tracking-wider mt-0.5">Direct Beneficiaries</div>
+              </div>
+              <div className="bg-[#0D223A]/90 p-4 rounded-2xl border border-[#205493] shadow-md min-w-[130px]">
+                <div className="text-2xl font-black text-[#10B981]">1,000+</div>
+                <div className="text-[11px] text-gray-300 uppercase tracking-wider mt-0.5">Indirect Families</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom row: The Three Guiding Pillars Showcase */}
+          <div className="relative z-10 mt-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+              <div className="inline-flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#FF9933]" />
+                <span className="font-mono text-xs sm:text-sm font-bold text-[#FF9933] uppercase tracking-wider">
+                  THREE GUIDING PILLARS OF MISSION YUVA SHAKTI
+                </span>
+              </div>
+              <span className="font-mono text-[11px] text-gray-300 uppercase tracking-wider">
+                Strategic Framework &amp; Youth Transformation
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {/* Pillar 01 */}
+              <div className="group relative bg-[#0D223A]/90 hover:bg-[#0B1E33] border border-[#205493]/70 hover:border-[#FF9933]/70 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[11px] font-bold tracking-wider text-[#FF9933] bg-[#071729] px-3 py-1 rounded-lg border border-[#205493]/80">
+                      PILLAR 01
+                    </span>
+                    <div className="w-9 h-9 rounded-xl bg-[#FF9933]/15 border border-[#FF9933]/30 flex items-center justify-center text-[#FF9933] group-hover:scale-110 transition-transform">
+                      <Briefcase className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold font-sans text-white leading-tight">
+                    हुनर से रोजगार
+                  </h3>
+                  <div className="text-xs font-mono font-bold text-[#FF9933] uppercase tracking-wider mt-1">
+                    Skill to Employment
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-gray-300 font-sans leading-relaxed mt-3 font-normal">
+                    Free employment-oriented vocational training in tailoring, beautician crafts, IT fundamentals, Tally/GST, and digital skills linked to sustainable local job placements.
+                  </p>
+                </div>
+                <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                  <span className="uppercase">Core Focus</span>
+                  <span className="text-[#FF9933] font-bold">Vocational &amp; Digital</span>
+                </div>
+              </div>
+
+              {/* Pillar 02 */}
+              <div className="group relative bg-[#0D223A]/90 hover:bg-[#0B1E33] border border-[#205493]/70 hover:border-[#38BDF8]/70 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[11px] font-bold tracking-wider text-[#38BDF8] bg-[#071729] px-3 py-1 rounded-lg border border-[#205493]/80">
+                      PILLAR 02
+                    </span>
+                    <div className="w-9 h-9 rounded-xl bg-[#38BDF8]/15 border border-[#38BDF8]/30 flex items-center justify-center text-[#38BDF8] group-hover:scale-110 transition-transform">
+                      <ShieldCheck className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold font-sans text-white leading-tight">
+                    अनुशासन से नेतृत्व
+                  </h3>
+                  <div className="text-xs font-mono font-bold text-[#38BDF8] uppercase tracking-wider mt-1">
+                    Discipline to Leadership
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-gray-300 font-sans leading-relaxed mt-3 font-normal">
+                    Army-standard physical endurance training, timed 1.6 km runs, beam drills, obstacle courses, and officer leadership ethics guided by Indian Army veterans.
+                  </p>
+                </div>
+                <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                  <span className="uppercase">Core Focus</span>
+                  <span className="text-[#38BDF8] font-bold">Physical &amp; Defence Prep</span>
+                </div>
+              </div>
+
+              {/* Pillar 03 */}
+              <div className="group relative bg-[#0D223A]/90 hover:bg-[#0B1E33] border border-[#205493]/70 hover:border-[#34D399]/70 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[11px] font-bold tracking-wider text-[#34D399] bg-[#071729] px-3 py-1 rounded-lg border border-[#205493]/80">
+                      PILLAR 03
+                    </span>
+                    <div className="w-9 h-9 rounded-xl bg-[#34D399]/15 border border-[#34D399]/30 flex items-center justify-center text-[#34D399] group-hover:scale-110 transition-transform">
+                      <TrendingUp className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold font-sans text-white leading-tight">
+                    अवसर से आत्मनिर्भरता
+                  </h3>
+                  <div className="text-xs font-mono font-bold text-[#34D399] uppercase tracking-wider mt-1">
+                    Opportunity to Self-Reliance
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-gray-300 font-sans leading-relaxed mt-3 font-normal">
+                    Enabling rural women and cadets to break intergenerational poverty through micro-enterprises, district athletic championships, self-confidence, and dignity.
+                  </p>
+                </div>
+                <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                  <span className="uppercase">Core Focus</span>
+                  <span className="text-[#34D399] font-bold">Women &amp; Rural Growth</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -103,11 +213,17 @@ export default function AboutPage() {
 
           <div className="p-6 bg-[#0D223A] text-white rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4 border border-[#205493]">
             <div className="font-mono text-xs space-y-1">
-              <div className="text-[#FF9933] font-bold">📍 LOCATION COVERAGE</div>
+              <div className="text-[#FF9933] font-bold flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5" />
+                <span>LOCATION COVERAGE</span>
+              </div>
               <div>Betul & surrounding rural Panchayats, Madhya Pradesh</div>
             </div>
             <div className="font-mono text-xs space-y-1 text-right">
-              <div className="text-[#FF9933] font-bold">👥 INDIRECT BENEFICIARIES</div>
+              <div className="text-[#FF9933] font-bold flex items-center justify-end gap-1.5">
+                <Users className="w-3.5 h-3.5" />
+                <span>INDIRECT BENEFICIARIES</span>
+              </div>
               <div>1,000+ Rural Family & Community Members</div>
             </div>
           </div>
@@ -118,7 +234,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-block px-3 py-1 bg-[#D97706]/15 border border-[#D97706]/40 text-[#B45309] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-            ⭐ FOUR INTEGRATED PILLARS
+            FOUR INTEGRATED PROGRAMMES
           </div>
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-[#163B66] font-display">
             Our Key Operational Wings
@@ -135,15 +251,15 @@ export default function AboutPage() {
               <span className="font-mono text-xs font-bold text-[#64748B]">120 CADETS</span>
             </div>
             <h3 className="text-2xl font-bold font-display uppercase text-[#163B66]">
-              🇮🇳 Defence & Uniformed Services Prep
+              Defence &amp; Uniformed Services Prep
             </h3>
             <p className="text-xs text-[#475569] leading-relaxed">
-              Structured preparation for Army, Agniveer, MP Police, SSC GD & Paramilitary service examinations.
+              Structured preparation for Army, Agniveer, MP Police, SSC GD &amp; Paramilitary service examinations.
             </p>
             <ul className="text-xs font-mono text-[#334155] space-y-2 border-t pt-3 border-gray-100">
-              <li>• <strong>Academic Coaching:</strong> Mathematics, Reasoning, GK, Science, Current Affairs & Mock Tests.</li>
-              <li>• <strong>Physical Fitness:</strong> 1.6km Speed Endurance Run, Strength, Agility & Obstacle Drills.</li>
-              <li>• <strong>Career Counselling:</strong> Recruitment documentation, eligibility checks & personality building.</li>
+              <li>• <strong>Academic Coaching:</strong> Mathematics, Reasoning, GK, Science, Current Affairs &amp; Mock Tests.</li>
+              <li>• <strong>Physical Fitness:</strong> 1.6km Speed Endurance Run, Strength, Agility &amp; Obstacle Drills.</li>
+              <li>• <strong>Career Counselling:</strong> Recruitment documentation, eligibility checks &amp; personality building.</li>
             </ul>
           </div>
 
@@ -156,15 +272,15 @@ export default function AboutPage() {
               <span className="font-mono text-xs font-bold text-[#64748B]">75 WOMEN</span>
             </div>
             <h3 className="text-2xl font-bold font-display uppercase text-[#163B66]">
-              👩 Women Empowerment & Self-Reliance
+              Women Empowerment &amp; Self-Reliance
             </h3>
             <p className="text-xs text-[#475569] leading-relaxed">
               Creating a supportive and secure environment for women to achieve economic participation and career confidence.
             </p>
             <ul className="text-xs font-mono text-[#334155] space-y-2 border-t pt-3 border-gray-100">
-              <li>• <strong>Digital Literacy:</strong> Computer Fundamentals, MS Office, Social Media & Spoken English.</li>
-              <li>• <strong>Financial Literacy:</strong> Banking basics, digital payments & entrepreneurship orientation.</li>
-              <li>• <strong>Self-Defense & Fitness:</strong> Physical confidence, leadership camps & career guidance.</li>
+              <li>• <strong>Digital Literacy:</strong> Computer Fundamentals, MS Office, Social Media &amp; Spoken English.</li>
+              <li>• <strong>Financial Literacy:</strong> Banking basics, digital payments &amp; entrepreneurship orientation.</li>
+              <li>• <strong>Self-Defense &amp; Fitness:</strong> Physical confidence, leadership camps &amp; career guidance.</li>
             </ul>
           </div>
 
@@ -177,14 +293,14 @@ export default function AboutPage() {
               <span className="font-mono text-xs font-bold text-[#64748B]">75 YOUTH</span>
             </div>
             <h3 className="text-2xl font-bold font-display uppercase text-[#163B66]">
-              💻 Youth Skill Development & Employability
+              Youth Skill Development &amp; Employability
             </h3>
             <p className="text-xs text-[#475569] leading-relaxed">
               Employment-oriented practical IT and vocational skills mapping to active job market requirements.
             </p>
             <ul className="text-xs font-mono text-[#334155] space-y-2 border-t pt-3 border-gray-100">
-              <li>• <strong>Practical IT Modules:</strong> Data Entry, Tally/GST Basics, Graphic Design & IT Support.</li>
-              <li>• <strong>Career Readiness:</strong> Resume building, interview prep & communication skills.</li>
+              <li>• <strong>Practical IT Modules:</strong> Data Entry, Tally/GST Basics, Graphic Design &amp; IT Support.</li>
+              <li>• <strong>Career Readiness:</strong> Resume building, interview prep &amp; communication skills.</li>
               <li>• <strong>Apprenticeship Linkage:</strong> Connecting trained youth with local and regional employers.</li>
             </ul>
           </div>
@@ -198,14 +314,14 @@ export default function AboutPage() {
               <span className="font-mono text-xs font-bold text-[#64748B]">30+ ATHLETES</span>
             </div>
             <h3 className="text-2xl font-bold font-display uppercase text-[#163B66]">
-              🏃 Sports, Fitness & Youth Leadership
+              Sports, Fitness &amp; Youth Leadership
             </h3>
             <p className="text-xs text-[#475569] leading-relaxed">
               Fostering discipline, teamwork, confidence, and competitive sportsmanship among rural athletes.
             </p>
             <ul className="text-xs font-mono text-[#334155] space-y-2 border-t pt-3 border-gray-100">
-              <li>• <strong>Sports Disciplines:</strong> Athletics, Football, Volleyball & Fauji Cup BPL Cricket.</li>
-              <li>• <strong>Conditioning Camps:</strong> Physical stamina tests, nutrition awareness & team building.</li>
+              <li>• <strong>Sports Disciplines:</strong> Athletics, Football, Volleyball &amp; Fauji Cup BPL Cricket.</li>
+              <li>• <strong>Conditioning Camps:</strong> Physical stamina tests, nutrition awareness &amp; team building.</li>
               <li>• <strong>Youth Competitions:</strong> Organizing tournaments and state-level selection trials.</li>
             </ul>
           </div>
@@ -217,7 +333,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-block px-3 py-1 bg-[#163B66] text-[#FF9933] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-              🔄 5-PHASE PROJECT IMPLEMENTATION MODEL
+              5-PHASE PROJECT IMPLEMENTATION MODEL
             </div>
             <h2 className="text-3xl sm:text-4xl font-black uppercase text-white font-display">
               From Identification to Employment Linkage
@@ -258,14 +374,20 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 bg-[#163B66]/80 rounded-2xl border border-[#205493] space-y-3">
-              <div className="text-xs font-mono text-[#FF9933] font-bold uppercase">🖥️ DIGITAL LEARNING & RESOURCE CENTRE</div>
+              <div className="text-xs font-mono text-[#FF9933] font-bold uppercase flex items-center gap-2">
+                <Laptop className="w-4 h-4 text-[#FF9933]" />
+                <span>DIGITAL LEARNING &amp; RESOURCE CENTRE</span>
+              </div>
               <p className="text-xs text-gray-200 leading-relaxed font-body">
-                Equipped with computer systems, high-speed internet, projector learning resources, and a physical competitive examination book bank (question papers, study guides & skill materials).
+                Equipped with computer systems, high-speed internet, projector learning resources, and a physical competitive examination book bank (question papers, study guides &amp; skill materials).
               </p>
             </div>
 
             <div className="p-6 bg-[#163B66]/80 rounded-2xl border border-[#205493] space-y-3">
-              <div className="text-xs font-mono text-[#FF9933] font-bold uppercase">💼 CAREER & EMPLOYMENT SUPPORT CELL</div>
+              <div className="text-xs font-mono text-[#FF9933] font-bold uppercase flex items-center gap-2">
+                <Briefcase className="w-4 h-4 text-[#FF9933]" />
+                <span>CAREER &amp; EMPLOYMENT SUPPORT CELL</span>
+              </div>
               <p className="text-xs text-gray-200 leading-relaxed font-body">
                 Dedicated unit conducting career counselling, job mapping, resume drafting, employer linkage, and tracking selection outcomes for every enrolled youth.
               </p>
@@ -278,7 +400,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-block px-3 py-1 bg-[#163B66]/15 text-[#163B66] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-            👥 LEADERSHIP & GOVERNING BODY
+            LEADERSHIP &amp; GOVERNING BODY
           </div>
           <h2 className="text-3xl sm:text-4xl font-black uppercase text-[#163B66] font-display">
             Who Runs Mera Watan Welfare Foundation Betul
@@ -320,7 +442,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-block px-3 py-1 bg-[#10B981]/15 text-[#047857] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-2">
-              📜 STATUTORY & CSR COMPLIANCE CREDENTIALS
+              STATUTORY &amp; CSR COMPLIANCE CREDENTIALS
             </div>
             <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#163B66] font-display">
               100% Compliant Implementing Agency
@@ -342,7 +464,7 @@ export default function AboutPage() {
             </div>
             <div className="p-4 bg-[#F8FAFC] rounded-2xl border border-gray-200 text-center font-mono text-xs">
               <div className="text-[#163B66] font-bold text-sm mb-1">SCHEDULE VII</div>
-              <div className="text-[#64748B]">Education, Skills & Sports Aligned</div>
+              <div className="text-[#64748B]">Education, Skills &amp; Sports Aligned</div>
             </div>
           </div>
 
@@ -351,7 +473,8 @@ export default function AboutPage() {
               href="/documents"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#163B66] text-white font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#0D223A] transition-colors"
             >
-              <span>📜 VIEW ALL NGO COMPLIANCE DOCUMENTS & CERTIFICATES</span>
+              <FileText className="w-4 h-4 text-[#FF9933]" />
+              <span>VIEW ALL NGO COMPLIANCE DOCUMENTS &amp; CERTIFICATES</span>
             </Link>
           </div>
         </div>

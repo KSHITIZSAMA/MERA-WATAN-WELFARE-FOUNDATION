@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Heart, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Heart, MapPin, Phone, Mail, Clock, Briefcase, ShieldCheck, TrendingUp } from "lucide-react";
 import { db } from "@/lib/db";
 import ContactSection from "@/components/ContactSection";
 import ScrollButton from "@/components/ScrollButton";
@@ -189,26 +189,131 @@ export default function Home() {
           </div>
 
           {/* Mission Yuva Shakti Banner */}
-          <div className="bg-[#163B66] text-white p-8 sm:p-10 rounded-3xl shadow-xl mb-12 border-b-8 border-[#D97706]">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="bg-[#163B66] text-white p-8 sm:p-12 rounded-3xl shadow-xl mb-12 border-b-8 border-[#D97706] relative overflow-hidden">
+            {/* Ambient glows */}
+            <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#D97706]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#0D223A]/80 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-[#205493]/70">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D97706]/20 border border-[#D97706]/50 text-[#FF9933] font-mono text-[11px] font-bold uppercase tracking-widest mb-3">
-                  <span>🇮🇳 FLAGSHIP PROGRAMME 2026–27</span>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D97706]/20 border border-[#D97706]/50 text-[#FF9933] font-mono text-[11px] font-bold tracking-widest uppercase mb-3">
+                  <span className="w-2 h-2 rounded-full bg-[#FF9933] animate-pulse" />
+                  <span>FLAGSHIP PROGRAMME 2026–27</span>
                 </div>
-                <h3 className="text-2xl sm:text-4xl font-black uppercase font-display text-white">
+                <h3 className="text-2xl sm:text-4xl font-black uppercase font-display text-white tracking-tight leading-tight">
                   "हर युवा को हुनर, हर हाथ को अवसर"
                 </h3>
-
+                <p className="text-gray-200 text-xs sm:text-sm font-sans mt-2 max-w-2xl leading-relaxed font-normal">
+                  Building a structured ecosystem for 300 direct beneficiaries and 1,000+ rural family members in Betul & surrounding rural regions of Madhya Pradesh.
+                </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 shrink-0 font-mono text-xs text-center w-full md:w-auto">
-                <div className="bg-[#0D223A] p-3 rounded-xl border border-[#205493]">
-                  <div className="text-xl font-bold text-[#FF9933]">300</div>
-                  <div className="text-[10px] text-gray-300">Direct Beneficiaries</div>
+              <div className="grid grid-cols-2 gap-3 shrink-0 font-mono text-center w-full sm:w-auto">
+                <div className="bg-[#0D223A]/90 p-4 rounded-2xl border border-[#205493] shadow-md min-w-[130px]">
+                  <div className="text-2xl font-black text-[#FF9933]">300</div>
+                  <div className="text-[11px] text-gray-300 uppercase tracking-wider mt-0.5">Direct Beneficiaries</div>
                 </div>
-                <div className="bg-[#0D223A] p-3 rounded-xl border border-[#205493]">
-                  <div className="text-xl font-bold text-[#10B981]">1,000+</div>
-                  <div className="text-[10px] text-gray-300">Indirect Families</div>
+                <div className="bg-[#0D223A]/90 p-4 rounded-2xl border border-[#205493] shadow-md min-w-[130px]">
+                  <div className="text-2xl font-black text-[#10B981]">1,000+</div>
+                  <div className="text-[11px] text-gray-300 uppercase tracking-wider mt-0.5">Indirect Families</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Three Guiding Pillars Showcase */}
+            <div className="relative z-10 mt-8">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+                <div className="inline-flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#FF9933]" />
+                  <span className="font-mono text-xs sm:text-sm font-bold text-[#FF9933] uppercase tracking-wider">
+                    THREE GUIDING PILLARS
+                  </span>
+                </div>
+                <span className="font-mono text-[11px] text-gray-300 uppercase tracking-wider">
+                  Core Foundations of Youth Transformation
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {/* Pillar 01 */}
+                <div className="group relative bg-[#0D223A]/90 hover:bg-[#0B1E33] border border-[#205493]/70 hover:border-[#FF9933]/70 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-[11px] font-bold tracking-wider text-[#FF9933] bg-[#071729] px-3 py-1 rounded-lg border border-[#205493]/80">
+                        PILLAR 01
+                      </span>
+                      <div className="w-9 h-9 rounded-xl bg-[#FF9933]/15 border border-[#FF9933]/30 flex items-center justify-center text-[#FF9933] group-hover:scale-110 transition-transform">
+                        <Briefcase className="w-4 h-4" />
+                      </div>
+                    </div>
+                    <h4 className="text-xl sm:text-2xl font-bold font-sans text-white leading-tight">
+                      हुनर से रोजगार
+                    </h4>
+                    <div className="text-xs font-mono font-bold text-[#FF9933] uppercase tracking-wider mt-1">
+                      Skill to Employment
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-gray-300 font-sans leading-relaxed mt-3 font-normal">
+                      Vocational tailoring, IT computer literacy, digital skills, and trade certifications mapped directly to career opportunities.
+                    </p>
+                  </div>
+                  <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                    <span className="uppercase">Core Focus</span>
+                    <span className="text-[#FF9933] font-bold">Vocational &amp; Digital</span>
+                  </div>
+                </div>
+
+                {/* Pillar 02 */}
+                <div className="group relative bg-[#0D223A]/90 hover:bg-[#0B1E33] border border-[#205493]/70 hover:border-[#38BDF8]/70 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-[11px] font-bold tracking-wider text-[#38BDF8] bg-[#071729] px-3 py-1 rounded-lg border border-[#205493]/80">
+                        PILLAR 02
+                      </span>
+                      <div className="w-9 h-9 rounded-xl bg-[#38BDF8]/15 border border-[#38BDF8]/30 flex items-center justify-center text-[#38BDF8] group-hover:scale-110 transition-transform">
+                        <ShieldCheck className="w-4 h-4" />
+                      </div>
+                    </div>
+                    <h4 className="text-xl sm:text-2xl font-bold font-sans text-white leading-tight">
+                      अनुशासन से नेतृत्व
+                    </h4>
+                    <div className="text-xs font-mono font-bold text-[#38BDF8] uppercase tracking-wider mt-1">
+                      Discipline to Leadership
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-gray-300 font-sans leading-relaxed mt-3 font-normal">
+                      Indian Army standard physical endurance regimens, 1.6 km speed runs, and mental character drills that instill officer values.
+                    </p>
+                  </div>
+                  <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                    <span className="uppercase">Core Focus</span>
+                    <span className="text-[#38BDF8] font-bold">Physical &amp; Defence Prep</span>
+                  </div>
+                </div>
+
+                {/* Pillar 03 */}
+                <div className="group relative bg-[#0D223A]/90 hover:bg-[#0B1E33] border border-[#205493]/70 hover:border-[#34D399]/70 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-[11px] font-bold tracking-wider text-[#34D399] bg-[#071729] px-3 py-1 rounded-lg border border-[#205493]/80">
+                        PILLAR 03
+                      </span>
+                      <div className="w-9 h-9 rounded-xl bg-[#34D399]/15 border border-[#34D399]/30 flex items-center justify-center text-[#34D399] group-hover:scale-110 transition-transform">
+                        <TrendingUp className="w-4 h-4" />
+                      </div>
+                    </div>
+                    <h4 className="text-xl sm:text-2xl font-bold font-sans text-white leading-tight">
+                      अवसर से आत्मनिर्भरता
+                    </h4>
+                    <div className="text-xs font-mono font-bold text-[#34D399] uppercase tracking-wider mt-1">
+                      Opportunity to Self-Reliance
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-gray-300 font-sans leading-relaxed mt-3 font-normal">
+                      Empowering rural youth and women with athletic tournament opportunities, financial independence, and social dignity.
+                    </p>
+                  </div>
+                  <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                    <span className="uppercase">Core Focus</span>
+                    <span className="text-[#34D399] font-bold">Women &amp; Rural Growth</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -335,9 +440,10 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------------------------------- */}
-      {/* 3. BRANCHES & WINGS OVERVIEW (id="activities") */}
+      {/* 3. BRANCHES & WINGS OVERVIEW (id="wings") */}
       {/* ------------------------------------------------------------------------- */}
-      <section id="activities" className="py-20 border-b-2 border-[#163B66]/15 bg-[#F4F6F9] scroll-mt-24">
+      <section id="wings" className="py-20 border-b-2 border-[#163B66]/15 bg-[#F4F6F9] scroll-mt-24">
+        <span id="branches" className="sr-only" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -600,19 +706,24 @@ export default function Home() {
 
 
       {/* ------------------------------------------------------------------------- */}
-      {/* 9. NOTICES & ANNOUNCEMENTS (id="notices") */}
+      {/* 9. ACTIVITIES & FIELD INITIATIVES (id="activities") */}
       {/* ------------------------------------------------------------------------- */}
-      <section id="notices" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
+      <section id="activities" className="py-20 bg-transparent border-b-2 border-[#163B66]/15 scroll-mt-24">
+        {/* Backward compatibility anchor */}
+        <span id="notices" className="sr-only" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
           <div className="mb-10 text-center sm:text-left">
             <span className="inline-block px-3.5 py-1 bg-white/90 backdrop-blur-sm text-[#163B66] font-mono text-[11px] font-black uppercase tracking-wider rounded-full mb-3 border border-[#163B66]/15 shadow-xs">
-              Official Updates
+              Foundation In Action
             </span>
             <h2 className="text-3xl sm:text-5xl font-black uppercase text-[#163B66] font-display tracking-tight drop-shadow-sm">
-              LATEST NOTICES & BULLETINS
+              ACTIVITIES
             </h2>
             <div className="w-20 h-1.5 bg-gradient-to-r from-[#FF9933] to-[#138808] rounded-full mt-3 sm:mx-0 mx-auto"></div>
+            <p className="text-xs sm:text-sm font-sans text-[#475569] mt-3 max-w-2xl font-medium leading-relaxed sm:mx-0 mx-auto">
+              Field programs, free physical training drives, daily nutrition distribution, women vocational camps, and community welfare initiatives led by Mera Watan Welfare Foundation Betul.
+            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">

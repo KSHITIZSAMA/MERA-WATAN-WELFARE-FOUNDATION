@@ -13,7 +13,7 @@ const ACTIVITIES = [
 
 const NAV_ITEMS = [
   { id: "about", href: "/#about", label: "About" },
-  { id: "activities", href: "/#activities", label: "Wings" },
+  { id: "activities", href: "/#activities", label: "Activities" },
   { id: "gallery", href: "/#gallery", label: "Gallery" },
   { id: "donors", href: "/#donors", label: "Donors" },
   { id: "contact", href: "/#contact", label: "Contact" },
@@ -32,7 +32,7 @@ export default function SiteHeader() {
   useEffect(() => {
     if (pathname !== "/") return;
 
-    const sectionIds = ["hero", "about", "activities", "army-training", "women-empowerment", "sports-fitness", "gallery", "notices", "donors", "contact"];
+    const sectionIds = ["hero", "about", "wings", "army-training", "women-empowerment", "sports-fitness", "gallery", "activities", "donors", "contact"];
     const sectionElements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
@@ -79,7 +79,7 @@ export default function SiteHeader() {
     setMobileOpen(false);
   };
 
-  const isActivityActive = ["activities", "army-training", "women-empowerment", "sports-fitness"].includes(activeSection);
+  const isWingsActive = ["wings", "army-training", "women-empowerment", "sports-fitness"].includes(activeSection);
 
   return (
     <header className="sticky top-0 z-50 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E2E8F0] shadow-xs">
@@ -126,13 +126,13 @@ export default function SiteHeader() {
                 onClick={() => setDropdownOpen((prev) => !prev)}
                 onMouseEnter={() => setDropdownOpen(true)}
                 className={`flex items-center gap-1.5 py-2 transition-colors relative ${
-                  isActivityActive ? "text-[#163B66] font-extrabold" : "text-[#0F172A] hover:text-[#163B66]"
+                  isWingsActive ? "text-[#163B66] font-extrabold" : "text-[#0F172A] hover:text-[#163B66]"
                 }`}
                 aria-expanded={dropdownOpen}
               >
                 <span>WINGS & CAUSES</span>
                 <span className="text-[10px] text-[#64748B]">[▼]</span>
-                {isActivityActive && (
+                {isWingsActive && (
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#D97706]" />
                 )}
               </button>
@@ -170,7 +170,7 @@ export default function SiteHeader() {
               </div>
             </div>
 
-            {NAV_ITEMS.filter((i) => i.id !== "about" && i.id !== "activities").map((item) => (
+            {NAV_ITEMS.filter((i) => i.id !== "about").map((item) => (
               <Link
                 key={item.id}
                 href={item.href}
@@ -264,7 +264,7 @@ export default function SiteHeader() {
             )}
           </div>
 
-          {NAV_ITEMS.filter((i) => i.id !== "about" && i.id !== "activities").map((item) => (
+          {NAV_ITEMS.filter((i) => i.id !== "about").map((item) => (
             <Link
               key={item.id}
               href={item.href}
