@@ -11,31 +11,36 @@ export default function DonorsPage() {
     <div>
       <PageHero eyebrow="LIST OF DONORS" title="Thank you to our donors" tone="rust" />
       <section className="mx-auto max-w-4xl px-4 sm:px-6 py-16">
-        <div className="border border-ink/10 rounded-sm overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-[#163B66] text-white font-mono">
-              <tr>
-                <th className="text-left px-5 py-3 font-medium">Donor</th>
-                <th className="text-left px-5 py-3 font-medium">Amount</th>
-                <th className="text-left px-5 py-3 font-medium">Frequency</th>
-                <th className="text-left px-5 py-3 font-medium">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sorted.map((d, i) => (
-                <tr key={d.id} className={i % 2 ? "bg-[#F8FAFC]" : "bg-white"}>
-                  <td className="px-5 py-3 font-semibold text-[#163B66]">{d.name}</td>
-                  <td className="px-5 py-3 font-mono font-bold text-[#D97706]">₹{d.amount.toLocaleString("en-IN")}</td>
-                  <td className="px-5 py-3 font-mono">
-                    <span className="px-2 py-0.5 rounded-full text-xs font-bold uppercase bg-[#10B981]/15 text-[#059669]">
-                      {d.frequency || "Monthly"}
-                    </span>
-                  </td>
-                  <td className="px-5 py-3 text-[#64748B]">{d.date}</td>
+        <div className="border border-ink/10 rounded-xl overflow-hidden shadow-sm">
+          <div className="overflow-x-auto w-full scrollbar-thin">
+            <table className="w-full text-xs sm:text-sm min-w-[320px] sm:min-w-full">
+              <thead className="bg-[#163B66] text-white font-mono">
+                <tr>
+                  <th className="text-left px-3.5 sm:px-5 py-3 font-medium text-xs sm:text-sm">Donor</th>
+                  <th className="text-left px-3 sm:px-5 py-3 font-medium text-xs sm:text-sm">Amount</th>
+                  <th className="text-left px-3 sm:px-5 py-3 font-medium text-xs sm:text-sm">Frequency</th>
+                  <th className="hidden sm:table-cell text-left px-5 py-3 font-medium text-xs sm:text-sm">Date</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {sorted.map((d, i) => (
+                  <tr key={d.id} className={i % 2 ? "bg-[#F8FAFC]" : "bg-white"}>
+                    <td className="px-3.5 sm:px-5 py-3 font-semibold text-[#163B66]">
+                      <div className="leading-tight">{d.name}</div>
+                      <div className="sm:hidden text-[10px] text-[#64748B] font-normal mt-0.5">{d.date}</div>
+                    </td>
+                    <td className="px-3 sm:px-5 py-3 font-mono font-bold text-[#D97706] whitespace-nowrap">₹{d.amount.toLocaleString("en-IN")}</td>
+                    <td className="px-3 sm:px-5 py-3 font-mono whitespace-nowrap">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase bg-[#10B981]/15 text-[#059669]">
+                        {d.frequency || "Monthly"}
+                      </span>
+                    </td>
+                    <td className="hidden sm:table-cell px-5 py-3 text-[#64748B] whitespace-nowrap">{d.date}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
         <div className="text-center mt-8">
           <Link href="/donate" className="px-6 py-3 bg-rust text-paper font-semibold rounded-sm inline-block">

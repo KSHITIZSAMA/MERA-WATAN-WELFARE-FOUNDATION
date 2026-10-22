@@ -68,31 +68,30 @@ export default function Home() {
                 Dedicated to free physical defence entrance training, women self-reliance &amp; vocational empowerment, youth sports excellence, and community environmental welfare across India.
               </p>
 
-              {/* Action Buttons: Responsive for Phone View */}
-              <div className="space-y-3 pt-1">
+              {/* Action Buttons: Unified in One Line */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
                 <Link
                   href="/membership"
-                  className="w-full sm:w-auto px-6 sm:px-7 py-3.5 sm:py-4 bg-[#D97706] text-white font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#B45309] active:scale-[0.99] transition-all shadow-lg hover:shadow-xl rounded-xl flex items-center justify-center gap-2 border-b-4 border-[#B45309] group"
+                  className="px-5 sm:px-6 py-3.5 bg-[#D97706] text-white font-mono text-xs font-bold tracking-wider uppercase hover:bg-[#B45309] active:scale-[0.99] transition-all shadow-md hover:shadow-lg rounded-xl flex items-center justify-center gap-2 border-b-4 border-[#B45309] group whitespace-nowrap"
                 >
                   <span>JOIN AS VOLUNTEER / CADET</span>
                   <span className="text-[#FF9933] group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
 
-                <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 sm:gap-4">
-                  <Link
-                    href="/donate"
-                    className="py-3 sm:py-4 px-4 sm:px-7 bg-[#163B66] text-white font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#0D223A] active:scale-[0.99] transition-all shadow-md rounded-xl flex items-center justify-center gap-2 border-b-4 border-[#0D223A]"
-                  >
-                    <Heart className="w-3.5 h-3.5 fill-white text-white" />
-                    <span>DONATE</span>
-                  </Link>
-                  <ScrollButton
-                    targetId="about"
-                    className="py-3 sm:py-4 px-4 sm:px-6 bg-white border-2 border-[#163B66]/30 text-[#163B66] font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#163B66] hover:text-white active:scale-[0.99] transition-all rounded-xl shadow-xs flex items-center justify-center text-center"
-                  >
-                    OUR IMPACT ↓
-                  </ScrollButton>
-                </div>
+                <Link
+                  href="/donate"
+                  className="px-5 sm:px-6 py-3.5 bg-[#163B66] text-white font-mono text-xs font-bold tracking-wider uppercase hover:bg-[#0D223A] active:scale-[0.99] transition-all shadow-md hover:shadow-lg rounded-xl flex items-center justify-center gap-2 border-b-4 border-[#0D223A] whitespace-nowrap"
+                >
+                  <Heart className="w-3.5 h-3.5 fill-white text-white" />
+                  <span>DONATE</span>
+                </Link>
+
+                <ScrollButton
+                  targetId="about"
+                  className="px-5 sm:px-6 py-3.5 bg-white border-2 border-[#163B66]/30 border-b-4 border-b-[#163B66]/40 text-[#163B66] font-mono text-xs font-bold tracking-wider uppercase hover:bg-[#163B66] hover:text-white active:scale-[0.99] transition-all rounded-xl shadow-xs hover:shadow-md flex items-center justify-center text-center whitespace-nowrap"
+                >
+                  OUR IMPACT ↓
+                </ScrollButton>
               </div>
 
               {/* Impact Stat Banner */}
@@ -758,35 +757,42 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden border border-[#163B66]/15 shadow-xl mb-8">
-            <table className="w-full text-xs font-mono">
-              <thead className="bg-[#163B66] text-white">
-                <tr>
-                  <th className="text-left px-6 py-4 uppercase font-bold tracking-wider">DONOR NAME</th>
-                  <th className="text-left px-6 py-4 uppercase font-bold tracking-wider">CONTRIBUTION</th>
-                  <th className="text-left px-6 py-4 uppercase font-bold tracking-wider">FREQUENCY</th>
-                  <th className="text-left px-6 py-4 uppercase font-bold tracking-wider">DATE</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {sortedDonors.map((d, i) => (
-                  <tr key={d.id} className={i % 2 ? "bg-[#F8FAFC]/80" : "bg-white/90"}>
-                    <td className="px-6 py-4 font-bold text-[#163B66]">{d.name}</td>
-                    <td className="px-6 py-4 text-[#D97706] font-bold">₹{d.amount.toLocaleString("en-IN")}</td>
-                    <td className="px-6 py-4">
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#10B981]/15 text-[#059669] border border-[#10B981]/30">
-                        {d.frequency || "Monthly"}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-[#64748B]">{d.date}</td>
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl overflow-hidden border border-[#163B66]/15 shadow-xl mb-8">
+            <div className="overflow-x-auto w-full scrollbar-thin">
+              <table className="w-full text-xs font-mono min-w-[320px] sm:min-w-full">
+                <thead className="bg-[#163B66] text-white">
+                  <tr>
+                    <th className="text-left px-3.5 sm:px-6 py-3.5 sm:py-4 uppercase font-bold tracking-wider text-[11px] sm:text-xs">DONOR NAME</th>
+                    <th className="text-left px-3 sm:px-6 py-3.5 sm:py-4 uppercase font-bold tracking-wider text-[11px] sm:text-xs">CONTRIBUTION</th>
+                    <th className="text-left px-3 sm:px-6 py-3.5 sm:py-4 uppercase font-bold tracking-wider text-[11px] sm:text-xs">FREQUENCY</th>
+                    <th className="hidden sm:table-cell text-left px-6 py-4 uppercase font-bold tracking-wider text-xs">DATE</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {sortedDonors.map((d, i) => (
+                    <tr key={d.id} className={i % 2 ? "bg-[#F8FAFC]/80" : "bg-white/90"}>
+                      <td className="px-3.5 sm:px-6 py-3 sm:py-4 font-bold text-[#163B66]">
+                        <div className="leading-tight">{d.name}</div>
+                        <div className="sm:hidden text-[10px] text-[#64748B] font-normal mt-0.5">{d.date}</div>
+                      </td>
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 text-[#D97706] font-bold whitespace-nowrap">
+                        ₹{d.amount.toLocaleString("en-IN")}
+                      </td>
+                      <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
+                        <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-[#10B981]/15 text-[#059669] border border-[#10B981]/30 inline-block">
+                          {d.frequency || "Monthly"}
+                        </span>
+                      </td>
+                      <td className="hidden sm:table-cell px-6 py-4 text-[#64748B] whitespace-nowrap">{d.date}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div className="text-center">
-            <Link href="/donate" className="px-8 py-4 bg-[#D97706] text-white font-mono text-xs font-bold uppercase tracking-widest hover:bg-[#B45309] transition-all rounded-xl inline-block shadow-lg border-b-4 border-[#B45309]">
+            <Link href="/donate" className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#D97706] text-white font-mono text-xs font-bold uppercase tracking-widest hover:bg-[#B45309] transition-all rounded-xl inline-block shadow-lg border-b-4 border-[#B45309]">
               BECOME A DONOR &amp; SUPPORT OUR MISSION →
             </Link>
           </div>
