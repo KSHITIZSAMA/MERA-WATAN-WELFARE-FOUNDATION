@@ -37,28 +37,28 @@ export default function ContactPage() {
       <PageHero eyebrow="CONTACT / ENQUIRY FORM" title="Get in touch" tone="amber" />
       <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16 grid lg:grid-cols-2 gap-12">
         <div>
-          <h2 className="text-2xl mb-4">Send us a message</h2>
+          <h2 className="text-2xl mb-4 font-bold text-[#163B66]">Submit an Enquiry</h2>
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-semibold mb-1">Name</label>
-              <input name="name" required className="w-full border border-ink/20 rounded-sm px-4 py-2.5 bg-paper" />
+              <label className="block text-sm font-semibold mb-1 text-[#163B66]">Name *</label>
+              <input name="name" required placeholder="e.g. Ramesh Singh" className="w-full border border-ink/20 rounded-xl px-4 py-2.5 bg-paper" />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1">Email</label>
-              <input name="email" type="email" className="w-full border border-ink/20 rounded-sm px-4 py-2.5 bg-paper" />
+              <label className="block text-sm font-semibold mb-1 text-[#163B66]">Email</label>
+              <input name="email" type="email" placeholder="e.g. yourname@example.com" className="w-full border border-ink/20 rounded-xl px-4 py-2.5 bg-paper" />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1">Message</label>
-              <textarea name="message" rows={5} required className="w-full border border-ink/20 rounded-sm px-4 py-2.5 bg-paper" />
+              <label className="block text-sm font-semibold mb-1 text-[#163B66]">Enquiry Message *</label>
+              <textarea name="message" rows={5} required placeholder="Ask about training batches, workshops, or foundation activities..." className="w-full border border-ink/20 rounded-xl px-4 py-2.5 bg-paper" />
             </div>
-            {status === "error" && <p className="text-sm text-rust">Something went wrong. Please try again.</p>}
-            {status === "done" && <p className="text-sm text-olive">Message sent — we'll get back to you soon.</p>}
+            {status === "error" && <p className="text-sm text-rust font-bold">Something went wrong. Please try again.</p>}
+            {status === "done" && <p className="text-sm text-olive font-bold">Enquiry sent successfully — our team will reach out to you soon.</p>}
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full py-3 bg-rust text-paper font-semibold rounded-sm hover:bg-olive transition-colors disabled:opacity-60"
+              className="w-full py-3.5 bg-[#D97706] text-white font-mono text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#B45309] transition-colors disabled:opacity-60 shadow-md"
             >
-              {status === "loading" ? "Sending…" : "Send Message"}
+              {status === "loading" ? "Submitting Enquiry…" : "Submit Enquiry"}
             </button>
           </form>
         </div>

@@ -12,6 +12,7 @@ export interface CadetRegistrationEmailPayload {
 export interface ContactMessageEmailPayload {
   name: string;
   email: string;
+  phone?: string;
   message: string;
 }
 
@@ -274,58 +275,147 @@ export async function sendEmailToVolunteer(payload: DirectVolunteerEmailPayload)
 
 /**
  * Sends notification email to Foundation Owner / Admin when a contact form enquiry is submitted.
+ * Delivers to both official foundation email and leadership inbox.
  */
 export async function sendContactNotificationToOwner(payload: ContactMessageEmailPayload) {
   const { user, ownerEmail } = getSmtpCredentials();
   const transporter = getEmailTransporter();
 
-  console.log(`[Contact Enquiry] New Message from ${payload.name} (${payload.email})`);
+  const recipients = Array.from(
+    new Set([ownerEmail, "raghuwanshiashok34@gmail.com"])
+  )
+    .filter(Boolean)
+    .join(", ");
+
+  console.log(`[Contact Enquiry] New Enquiry from ${payload.name} (${payload.email || "No email"}${payload.phone ? ` - Phone: ${payload.phone}` : ""}) -> Sending to: ${recipients}`);
 
   try {
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; background-color: #f4f6f9; padding: 25px; border-radius: 12px; color: #0f172a; max-width: 600px; margin: 0 auto; border: 2px solid #163b66;">
         <div style="background-color: #163b66; color: #ffffff; padding: 15px 20px; border-radius: 8px 8px 0 0; text-align: center;">
           <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">✉️ MERA WATAN WELFARE FOUNDATION</h2>
-          <p style="margin: 4px 0 0 0; font-size: 12px; color: #ff9933; font-weight: bold;">NEW DIRECT ENQUIRY / MESSAGE</p>
+          <p style="margin: 4px 0 0 0; font-size: 12px; color: #ff9933; font-weight: bold; text-transform: uppercase;">NEW FOUNDATION ENQUIRY</p>
         </div>
 
         <div style="padding: 20px; background-color: #ffffff; border-radius: 0 0 8px 8px; border: 1px solid #cbd5e1;">
-          <p style="font-size: 14px; color: #334155;">A new message was submitted via the website contact desk:</p>
+          <p style="font-size: 14px; color: #334155;">A new enquiry has been submitted on the website enquiry desk:</p>
 
           <table style="width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px;">
             <tr style="border-bottom: 1px solid #e2e8f0;">
-              <td style="padding: 10px; font-weight: bold; color: #163b66; width: 35%;">Sender Name:</td>
+              <td style="padding: 10px; font-weight: bold; color: #163b66; width: 35%;">Inquirer Name:</td>
               <td style="padding: 10px; font-weight: bold; color: #0f172a;">${payload.name}</td>
             </tr>
             <tr style="border-bottom: 1px solid #e2e8f0;">
               <td style="padding: 10px; font-weight: bold; color: #163b66;">Email Address:</td>
-              <td style="padding: 10px; color: #d97706; font-weight: bold;">${payload.email}</td>
+              <td style="padding: 10px; color: #d97706; font-weight: bold;">${payload.email || "Not Provided"}</td>
             </tr>
+            ${
+              payload.phone
+                ? `<tr style="border-bottom: 1px solid #e2e8f0;">
+                    <td style="padding: 10px; font-weight: bold; color: #163b66;">Phone Number:</td>
+                    <td style="padding: 10px; font-weight: bold; color: #0f172a;">${payload.phone}</td>
+                  </tr>`
+                : ""
+            }
             <tr>
-              <td style="padding: 10px; font-weight: bold; color: #163b66; vertical-align: top;">Message:</td>
+              <td style="padding: 10px; font-weight: bold; color: #163b66; vertical-align: top;">Enquiry Details:</td>
               <td style="padding: 10px; color: #334155; white-space: pre-wrap;">${payload.message}</td>
             </tr>
           </table>
+
+          <div style="margin-top: 20px; padding: 12px; background-color: #ebf9ff; border-left: 4px solid #163b66; border-radius: 6px; font-size: 12px; color: #1e3a8a;">
+            💡 <b>Action Item:</b> Reply directly to <b>${payload.email || "the inquirer"}</b>${payload.phone ? ` or call <b>${payload.phone}</b>` : ""} to respond.
+          </div>
         </div>
 
         <div style="text-align: center; margin-top: 15px; font-size: 11px; color: #64748b;">
-          Mera Watan Welfare Foundation · Sent to ${ownerEmail}
+          Mera Watan Welfare Foundation · Official Notification
         </div>
       </div>
     `;
 
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"Mera Watan Website" <${user}>`,
-      to: ownerEmail,
-      subject: `✉️ New Foundation Enquiry from ${payload.name}`,
+      to: recipients,
+      subject: `✉️ New Foundation Enquiry: ${payload.name}`,
       html: htmlContent,
-      replyTo: payload.email,
+      replyTo: payload.email || user,
     });
 
-    console.log(`[Contact Email Success] Sent enquiry to ${ownerEmail}`);
-    return { sent: true };
+    console.log(`[Contact Email Success] Sent enquiry to ${recipients} (MessageId: ${info.messageId})`);
+    return { sent: true, messageId: info.messageId };
   } catch (error) {
     console.error("[Contact Email Error] Failed to send email via SMTP:", error);
+    return { sent: false, error };
+  }
+}
+
+/**
+ * Sends an enquiry receipt acknowledgement to the client / inquirer.
+ * Confirms receipt of their message without any volunteer induction confusion.
+ */
+export async function sendEnquiryAcknowledgementEmail(payload: ContactMessageEmailPayload) {
+  if (!payload.email || !payload.email.includes("@")) {
+    console.log(`[Enquiry Acknowledgement Skipped] No valid email provided for ${payload.name}`);
+    return { sent: false, reason: "No email address provided" };
+  }
+
+  const { user } = getSmtpCredentials();
+  const transporter = getEmailTransporter();
+
+  const htmlContent = `
+    <div style="font-family: Arial, Helvetica, sans-serif; background-color: #f8fafc; padding: 25px; color: #0f172a; max-width: 600px; margin: 0 auto; border: 2px solid #163b66; border-radius: 12px;">
+      <div style="background-color: #163b66; color: #ffffff; padding: 22px 20px; border-radius: 8px 8px 0 0; text-align: center;">
+        <h1 style="margin: 0; font-size: 20px; letter-spacing: 1px; color: #ffffff;">MERA WATAN WELFARE FOUNDATION</h1>
+        <p style="margin: 6px 0 0 0; font-size: 12px; color: #ff9933; font-weight: bold; text-transform: uppercase;">
+          Enquiry Received • Betul, Madhya Pradesh
+        </p>
+      </div>
+
+      <div style="padding: 24px; background-color: #ffffff; border-radius: 0 0 8px 8px; border: 1px solid #e2e8f0;">
+        <h2 style="font-size: 18px; color: #163b66; margin-top: 0;">Namaste, ${payload.name}!</h2>
+        
+        <p style="font-size: 14px; line-height: 1.6; color: #334155;">
+          Thank you for reaching out to <b>Mera Watan Welfare Foundation Betul</b>. We have successfully received your enquiry.
+        </p>
+
+        <div style="background-color: #f8fafc; border-left: 4px solid #163b66; padding: 15px; border-radius: 6px; margin: 20px 0; border-top: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+          <h3 style="margin: 0 0 10px 0; font-size: 12px; color: #163b66; text-transform: uppercase; letter-spacing: 0.5px; font-weight: bold;">
+            Your Enquiry Summary
+          </h3>
+          <p style="font-size: 13px; line-height: 1.6; color: #475569; margin: 0; white-space: pre-wrap;">${payload.message}</p>
+        </div>
+
+        <p style="font-size: 13px; line-height: 1.6; color: #475569;">
+          Our administration desk will review your query and get back to you shortly at <b>${payload.email}</b>${payload.phone ? ` or <b>${payload.phone}</b>` : ""}.
+        </p>
+
+        <div style="margin-top: 25px; border-top: 1px solid #e2e8f0; padding-top: 16px; font-size: 12px; color: #64748b;">
+          <p style="margin: 0 0 4px 0;">Need urgent assistance or have questions?</p>
+          <p style="margin: 0; color: #163b66;">
+            Email: <a href="mailto:${user}" style="color: #d97706; text-decoration: none; font-weight: bold;">${user}</a> | Phone: <b>+91 97976 33077</b>
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 16px; font-size: 11px; color: #94a3b8;">
+        © Mera Watan Welfare Foundation · Betul, Madhya Pradesh · All Rights Reserved
+      </div>
+    </div>
+  `;
+
+  try {
+    const info = await transporter.sendMail({
+      from: `"Mera Watan Welfare Foundation" <${user}>`,
+      to: payload.email,
+      replyTo: user,
+      subject: `✉️ Enquiry Received — Mera Watan Welfare Foundation Betul`,
+      html: htmlContent,
+    });
+    console.log(`[Enquiry Acknowledgement Success] Sent receipt to ${payload.email} (MessageId: ${info.messageId})`);
+    return { sent: true, messageId: info.messageId };
+  } catch (error) {
+    console.error("[Enquiry Acknowledgement Error] Failed to send receipt to client:", error);
     return { sent: false, error };
   }
 }
