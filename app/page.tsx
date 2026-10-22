@@ -7,6 +7,7 @@ import ScrollButton from "@/components/ScrollButton";
 import GallerySection from "@/components/GallerySection";
 import StatCounter from "@/components/StatCounter";
 import { GradientBackground } from "@/components/GradientBackground";
+import ActivitiesShowcase from "@/components/ActivitiesShowcase";
 
 export const dynamic = "force-dynamic";
 
@@ -44,60 +45,67 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 gap-10 items-center">
 
             {/* Left Column: Mission, Title & CTAs */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6">
 
-
+              {/* Eyebrow Pill Badge for Mobile & Desktop */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#163B66]/10 border border-[#163B66]/20 text-[#163B66] font-mono text-[10px] sm:text-xs font-bold tracking-wider uppercase">
+                <span className="w-2 h-2 rounded-full bg-[#FF9933] animate-pulse" />
+                <span>Govt. Regd. Non-Profit · Betul, M.P.</span>
+              </div>
 
               {/* High-Impact Dual Tone Heading */}
               <div className="space-y-1">
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#163B66] leading-[1.05] font-display">
+                <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-[#163B66] leading-[1.08] font-display">
                   MERA WATAN
                 </h1>
-                <div className="text-2xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-[#D97706] leading-tight font-display">
+                <div className="text-xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-[#D97706] leading-tight font-display">
                   WELFARE FOUNDATION BETUL
                 </div>
               </div>
 
               {/* Subtext */}
-              <p className="text-sm sm:text-base font-body text-[#334155] tracking-wide max-w-2xl leading-relaxed font-medium">
-                Dedicated to free physical defence entrance training, women self-reliance & vocational empowerment, youth sports excellence, and community environmental welfare across India.
+              <p className="text-xs sm:text-base font-body text-[#334155] tracking-normal max-w-2xl leading-relaxed font-normal">
+                Dedicated to free physical defence entrance training, women self-reliance &amp; vocational empowerment, youth sports excellence, and community environmental welfare across India.
               </p>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap gap-4 pt-2">
+              {/* Action Buttons: Responsive for Phone View */}
+              <div className="space-y-3 pt-1">
                 <Link
                   href="/membership"
-                  className="px-7 py-4 bg-[#D97706] text-white font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#B45309] transition-all shadow-xl hover:shadow-2xl rounded-xl flex items-center gap-2 border-b-4 border-[#B45309] group"
+                  className="w-full sm:w-auto px-6 sm:px-7 py-3.5 sm:py-4 bg-[#D97706] text-white font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#B45309] active:scale-[0.99] transition-all shadow-lg hover:shadow-xl rounded-xl flex items-center justify-center gap-2 border-b-4 border-[#B45309] group"
                 >
                   <span>JOIN AS VOLUNTEER / CADET</span>
                   <span className="text-[#FF9933] group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
-                <Link
-                  href="/donate"
-                  className="px-7 py-4 bg-[#163B66] text-white font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#0D223A] transition-all shadow-xl rounded-xl flex items-center gap-2 border-b-4 border-[#0D223A]"
-                >
-                  <Heart className="w-3.5 h-3.5 fill-white text-white" />
-                  <span>DONATE</span>
-                </Link>
-                <ScrollButton
-                  targetId="about"
-                  className="px-6 py-4 bg-white border-2 border-[#163B66]/30 text-[#163B66] font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#163B66] hover:text-white transition-all rounded-xl shadow-sm"
-                >
-                  OUR IMPACT ↓
-                </ScrollButton>
+
+                <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 sm:gap-4">
+                  <Link
+                    href="/donate"
+                    className="py-3 sm:py-4 px-4 sm:px-7 bg-[#163B66] text-white font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#0D223A] active:scale-[0.99] transition-all shadow-md rounded-xl flex items-center justify-center gap-2 border-b-4 border-[#0D223A]"
+                  >
+                    <Heart className="w-3.5 h-3.5 fill-white text-white" />
+                    <span>DONATE</span>
+                  </Link>
+                  <ScrollButton
+                    targetId="about"
+                    className="py-3 sm:py-4 px-4 sm:px-6 bg-white border-2 border-[#163B66]/30 text-[#163B66] font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#163B66] hover:text-white active:scale-[0.99] transition-all rounded-xl shadow-xs flex items-center justify-center text-center"
+                  >
+                    OUR IMPACT ↓
+                  </ScrollButton>
+                </div>
               </div>
 
               {/* Impact Stat Banner */}
-              <div className="mt-8 bg-[#163B66] text-white p-5 sm:p-6 shadow-2xl flex items-center gap-5 border-l-8 border-[#D97706] rounded-2xl border border-[#205493]/60 relative overflow-hidden">
-                <div className="text-4xl sm:text-5xl font-mono font-extrabold text-[#FF9933] shrink-0">
+              <div className="mt-6 sm:mt-8 bg-[#163B66] text-white p-4 sm:p-6 shadow-xl flex items-center gap-4 sm:gap-5 border-l-4 sm:border-l-8 border-[#D97706] rounded-2xl border border-[#205493]/60 relative overflow-hidden">
+                <div className="text-3xl sm:text-5xl font-mono font-extrabold text-[#FF9933] shrink-0">
                   <StatCounter end={270} suffix="+" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono font-bold text-[#FF9933] uppercase tracking-widest">
-                    DEFENCE SELECTIONS & QUALIFIED CADETS
+                  <div className="text-[11px] sm:text-xs font-mono font-bold text-[#FF9933] uppercase tracking-wider sm:tracking-widest">
+                    DEFENCE SELECTIONS &amp; QUALIFIED CADETS
                   </div>
-                  <div className="text-xs font-mono text-[#E2E8F0] leading-relaxed uppercase mt-0.5 font-medium">
-                    Young men & women successfully recruited into Army, Police & Athletic Teams.
+                  <div className="text-[10px] sm:text-xs font-mono text-[#E2E8F0] leading-snug sm:leading-relaxed uppercase mt-0.5 font-medium">
+                    Young men &amp; women successfully recruited into Army, Police &amp; Athletic Teams.
                   </div>
                 </div>
               </div>
@@ -113,7 +121,7 @@ export default function Home() {
 
                 {/* Main Card */}
                 <div className="relative bg-[#0D223A] border-4 border-[#163B66] rounded-3xl overflow-hidden shadow-2xl p-2.5">
-                  <div className="relative h-[480px] sm:h-[540px] w-full rounded-2xl overflow-hidden bg-[#071526]">
+                  <div className="relative h-[360px] sm:h-[480px] lg:h-[540px] w-full rounded-2xl overflow-hidden bg-[#071526]">
                     <Image
                       src="/images/ashok-raghuvanshi-hero.jpg"
                       alt="Mera Watan Welfare Foundation Founder Ashok Raghuvanshi (Ex-Army)"
@@ -122,16 +130,15 @@ export default function Home() {
                       className="object-cover object-center filter contrast-105 brightness-100 transform hover:scale-105 transition-transform duration-700"
                     />
 
-
                     {/* Bottom Floating Card */}
-                    <div className="absolute bottom-4 inset-x-4 z-20">
-                      <div className="p-4 bg-[#163B66]/90 backdrop-blur-md border border-[#D97706]/50 rounded-xl text-white shadow-xl">
-                        <div className="flex items-center justify-between font-mono text-[11px] font-bold text-[#FF9933] uppercase tracking-wider mb-1">
-                          <span>FOUNDER & PRESIDENT</span>
-                          <span className="bg-[#D97706] text-white px-2 py-0.5 rounded text-[9px] font-bold">INDIAN ARMY (RETD.)</span>
+                    <div className="absolute bottom-3 inset-x-3 sm:bottom-4 sm:inset-x-4 z-20">
+                      <div className="p-3 sm:p-4 bg-[#163B66]/90 backdrop-blur-md border border-[#D97706]/50 rounded-xl text-white shadow-xl">
+                        <div className="flex items-center justify-between font-mono text-[10px] sm:text-[11px] font-bold text-[#FF9933] uppercase tracking-wider mb-1">
+                          <span>FOUNDER &amp; PRESIDENT</span>
+                          <span className="bg-[#D97706] text-white px-2 py-0.5 rounded text-[8px] sm:text-[9px] font-bold">INDIAN ARMY (RETD.)</span>
                         </div>
-                        <p className="text-xs font-mono text-gray-200 leading-snug font-semibold">
-                          DFR Ashok Raghuvanshi (Retd. Indian Army) — Guiding youth towards national service, discipline & fitness.
+                        <p className="text-[11px] sm:text-xs font-mono text-gray-200 leading-snug font-semibold">
+                          DFR Ashok Raghuvanshi (Retd. Indian Army) — Guiding youth towards national service, discipline &amp; fitness.
                         </p>
                       </div>
                     </div>
@@ -726,17 +733,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {recentActivity.map((n) => (
-              <div key={n.id} className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl border border-[#163B66]/15 shadow-md hover:shadow-xl transition-all">
-                <div className="flex items-center justify-end font-mono text-xs text-[#64748B] mb-3">
-                  <span className="font-bold">{n.date}</span>
-                </div>
-                <h3 className="text-base sm:text-lg font-black text-[#163B66] mb-2 font-sans tracking-tight leading-snug">{n.title}</h3>
-                <p className="text-xs sm:text-[13px] text-[#475569] leading-relaxed font-sans font-medium">{n.body}</p>
-              </div>
-            ))}
-          </div>
+          {/* Rich Activities Showcase with Featured Poster and Action Photography */}
+          <ActivitiesShowcase />
 
         </div>
       </section>

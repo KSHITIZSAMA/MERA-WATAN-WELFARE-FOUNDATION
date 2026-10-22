@@ -3,26 +3,61 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Heart } from "lucide-react";
+import {
+  Heart,
+  Menu,
+  X,
+  ChevronDown,
+  ShieldCheck,
+  Sparkles,
+  Trophy,
+  Info,
+  Calendar,
+  Image as ImageIcon,
+  Users,
+  PhoneCall,
+  UserPlus
+} from "lucide-react";
 
 const ACTIVITIES = [
-  { id: "army-training", href: "/#army-training", label: "Army Training", code: "ACT // 01", desc: "Physical PT, mock written exams & interview prep" },
-  { id: "women-empowerment", href: "/#women-empowerment", label: "Women Empowerment", code: "ACT // 02", desc: "Tailoring, beautician & skill development" },
-  { id: "sports-fitness", href: "/#sports-fitness", label: "Sports & Fitness", code: "ACT // 03", desc: "Coaching, trials & district fitness drives" },
+  {
+    id: "army-training",
+    href: "/#army-training",
+    label: "Army & Defence Prep",
+    desc: "Physical PT, 1.6 km speed endurance drills & exam coaching",
+    icon: ShieldCheck,
+    color: "#FF9933"
+  },
+  {
+    id: "women-empowerment",
+    href: "/#women-empowerment",
+    label: "Women Empowerment",
+    desc: "Self-defense, tailoring, digital literacy & livelihood skills",
+    icon: Sparkles,
+    color: "#F59E0B"
+  },
+  {
+    id: "sports-fitness",
+    href: "/#sports-fitness",
+    label: "Sports & Athletics",
+    desc: "Athletics academy, Fauji Cup tournaments & stamina camps",
+    icon: Trophy,
+    color: "#38BDF8"
+  },
 ];
 
 const NAV_ITEMS = [
-  { id: "about", href: "/#about", label: "About" },
-  { id: "activities", href: "/#activities", label: "Activities" },
-  { id: "gallery", href: "/#gallery", label: "Gallery" },
-  { id: "donors", href: "/#donors", label: "Donors" },
-  { id: "contact", href: "/#contact", label: "Contact" },
+  { id: "about", href: "/#about", label: "About", icon: Info },
+  { id: "activities", href: "/#activities", label: "Activities", icon: Calendar },
+  { id: "gallery", href: "/#gallery", label: "Gallery", icon: ImageIcon },
+  { id: "donors", href: "/#donors", label: "Donors", icon: Users },
+  { id: "contact", href: "/#contact", label: "Contact", icon: PhoneCall },
 ];
 
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileActivitiesOpen, setMobileActivitiesOpen] = useState(true);
+  const [mobileWingsOpen, setMobileWingsOpen] = useState(true);
   const [activeSection, setActiveSection] = useState<string>("hero");
   
   const pathname = usePathname();
@@ -86,24 +121,46 @@ export default function SiteHeader() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20">
           
-          {/* Logo with NGO Badge styling */}
-          <Link
-            href="/#hero"
-            onClick={(e) => handleNavClick(e, "hero")}
-            className="flex items-center gap-3 group"
-          >
-            <div className="w-10 h-10 bg-[#163B66] text-white flex items-center justify-center font-mono font-bold text-lg rounded-xl shadow-md group-hover:bg-[#0D223A] transition-colors">
+          {/* Left: Mobile Menu Trigger (in place of MW) + Brand Title */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* Mobile Dropdown Trigger in place of MW */}
+            <button
+              type="button"
+              aria-label="Toggle Navigation Menu"
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((v) => !v)}
+              className="lg:hidden w-10 h-10 bg-[#163B66] text-white hover:bg-[#0D223A] active:scale-95 flex items-center justify-center rounded-xl shadow-md transition-all border border-[#205493]/70 focus:outline-none shrink-0 cursor-pointer"
+            >
+              {mobileOpen ? (
+                <X className="w-5 h-5 text-[#FF9933]" />
+              ) : (
+                <Menu className="w-5 h-5 text-white" />
+              )}
+            </button>
+
+            {/* Desktop Brand Logo Badge (Shown only on lg+) */}
+            <Link
+              href="/#hero"
+              onClick={(e) => handleNavClick(e, "hero")}
+              className="hidden lg:flex w-10 h-10 bg-[#163B66] text-white items-center justify-center font-mono font-bold text-lg rounded-xl shadow-md hover:bg-[#0D223A] transition-colors shrink-0"
+            >
               MW
-            </div>
-            <div className="flex flex-col">
-              <div className="display text-lg sm:text-xl font-bold tracking-wider text-[#0F172A] leading-none group-hover:text-[#163B66] transition-colors font-display">
+            </Link>
+
+            {/* Brand Title */}
+            <Link
+              href="/#hero"
+              onClick={(e) => handleNavClick(e, "hero")}
+              className="flex flex-col group select-none"
+            >
+              <div className="text-[17px] sm:text-xl font-bold tracking-wider text-[#0F172A] leading-tight group-hover:text-[#163B66] transition-colors font-display">
                 MERA WATAN
               </div>
-              <span className="font-mono text-[10px] tracking-[0.2em] text-[#D97706] uppercase mt-0.5 font-bold">
+              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.16em] sm:tracking-[0.2em] text-[#D97706] uppercase font-bold">
                 WELFARE FOUNDATION BETUL
               </span>
-            </div>
-          </Link>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-7 text-xs font-mono font-semibold tracking-wider uppercase">
@@ -120,12 +177,12 @@ export default function SiteHeader() {
               )}
             </Link>
 
-            {/* Activities Serving Dropdown */}
+            {/* Wings & Causes Dropdown */}
             <div className="relative group" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen((prev) => !prev)}
                 onMouseEnter={() => setDropdownOpen(true)}
-                className={`flex items-center gap-1.5 py-2 transition-colors relative ${
+                className={`flex items-center gap-1.5 py-2 transition-colors relative cursor-pointer ${
                   isWingsActive ? "text-[#163B66] font-extrabold" : "text-[#0F172A] hover:text-[#163B66]"
                 }`}
                 aria-expanded={dropdownOpen}
@@ -138,36 +195,41 @@ export default function SiteHeader() {
               </button>
 
               {/* Dropdown Menu Box */}
-              <div
-                onMouseLeave={() => setDropdownOpen(false)}
-                className={`absolute left-0 top-full pt-2 w-80 transition-all duration-200 ${
-                  dropdownOpen
-                    ? "opacity-100 visible translate-y-0"
-                    : "opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0"
-                }`}
-              >
-                <div className="bg-[#FFFFFF] border-2 border-[#163B66] rounded-xl shadow-2xl p-3 space-y-1.5">
-
-                  {ACTIVITIES.map((act) => (
-                    <Link
-                      key={act.id}
-                      href={act.href}
-                      onClick={(e) => handleNavClick(e, act.id)}
-                      className={`block px-3 py-2.5 rounded-lg transition-colors border-l-3 ${
-                        activeSection === act.id
-                          ? "bg-[#163B66]/10 border-[#D97706] text-[#163B66] font-bold"
-                          : "border-transparent hover:bg-[#F1F5F9] hover:border-[#163B66] text-[#0F172A]"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold text-xs uppercase font-mono">{act.label}</span>
-                        <span className="text-[10px] text-[#64748B] font-mono">{act.code}</span>
-                      </div>
-                      <div className="text-[11px] text-[#64748B] mt-0.5 leading-snug font-sans">{act.desc}</div>
-                    </Link>
-                  ))}
+              {dropdownOpen && (
+                <div
+                  onMouseLeave={() => setDropdownOpen(false)}
+                  className="absolute left-0 mt-1 w-80 bg-white border border-[#163B66]/20 rounded-2xl shadow-2xl p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+                >
+                  <div className="px-3 py-2 text-[10px] font-mono tracking-widest text-[#64748B] uppercase border-b border-[#E2E8F0] mb-2 font-bold">
+                    OPERATIONAL WINGS
+                  </div>
+                  {ACTIVITIES.map((act) => {
+                    const ActIcon = act.icon;
+                    return (
+                      <Link
+                        key={act.id}
+                        href={act.href}
+                        onClick={(e) => handleNavClick(e, act.id)}
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-[#F8FAFC] transition-colors group/item"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-[#163B66]/10 text-[#163B66] flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-[#163B66] group-hover/item:text-white transition-colors">
+                          <ActIcon className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-bold text-[#0F172A] group-hover/item:text-[#163B66] transition-colors">
+                              {act.label}
+                            </span>
+                          </div>
+                          <p className="text-[11px] text-[#64748B] font-normal leading-tight mt-1">
+                            {act.desc}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
-              </div>
+              )}
             </div>
 
             {NAV_ITEMS.filter((i) => i.id !== "about").map((item) => (
@@ -187,7 +249,7 @@ export default function SiteHeader() {
             ))}
           </nav>
 
-          {/* Action Buttons */}
+          {/* Desktop Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/membership"
@@ -205,83 +267,130 @@ export default function SiteHeader() {
             </Link>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <button
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((v) => !v)}
-            className="lg:hidden flex flex-col gap-1.5 p-2.5 border border-[#CBD5E1] bg-[#F8F9FA] rounded-lg"
-          >
-            <span className="w-6 h-0.5 bg-[#0F172A]" />
-            <span className="w-6 h-0.5 bg-[#0F172A]" />
-            <span className="w-6 h-0.5 bg-[#0F172A]" />
-          </button>
+          {/* Mobile Right CTA Button: Fast Donate */}
+          <div className="lg:hidden flex items-center">
+            <Link
+              href="/#donors"
+              onClick={(e) => handleNavClick(e, "donors")}
+              className="text-[11px] font-mono font-bold tracking-wider uppercase px-3.5 py-1.5 bg-[#D97706] text-white hover:bg-[#B45309] active:scale-95 transition-all rounded-xl shadow-sm flex items-center gap-1.5 border border-[#B45309]"
+            >
+              <Heart className="w-3 h-3 fill-white text-white" />
+              <span>DONATE</span>
+            </Link>
+          </div>
+
         </div>
       </div>
 
+      {/* Tri-Color Accent Strip */}
       <div className="tri-band">
         <span />
         <span />
         <span />
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Elevated Mobile Dropdown Menu Drawer */}
       {mobileOpen && (
-        <nav className="lg:hidden bg-[#FFFFFF] border-b-2 border-[#163B66] px-4 sm:px-6 py-5 flex flex-col gap-3 font-mono text-xs uppercase tracking-wider shadow-xl">
+        <nav className="lg:hidden bg-[#0D223A] border-b-4 border-[#D97706] px-4 py-6 flex flex-col gap-3 font-mono text-xs uppercase tracking-wider shadow-2xl animate-in fade-in slide-in-from-top-3 duration-200">
+          
+          <div className="pb-2 border-b border-[#205493]/70">
+            <span className="text-[10px] font-bold text-[#FF9933] tracking-[0.2em]">
+              NAVIGATION MENU
+            </span>
+          </div>
+
+          {/* About Link */}
           <Link
             href="/#about"
             onClick={(e) => handleNavClick(e, "about")}
-            className={`py-1 ${activeSection === "about" ? "text-[#D97706] font-bold" : "text-[#0F172A]"}`}
+            className={`flex items-center gap-2.5 py-2 px-3 rounded-xl transition-all ${
+              activeSection === "about"
+                ? "bg-[#D97706] text-white font-bold shadow-md"
+                : "text-gray-200 hover:bg-[#163B66] hover:text-white"
+            }`}
           >
-            • ABOUT NGO
+            <Info className="w-4 h-4 text-[#FF9933]" />
+            <span>ABOUT FOUNDATION</span>
           </Link>
 
-          {/* Mobile Activities Column */}
-          <div className="border-y border-[#E2E8F0] py-3 my-1">
+          {/* Wings & Causes Accordion */}
+          <div className="bg-[#132F52]/80 border border-[#205493] rounded-2xl p-3 my-1">
             <button
-              onClick={() => setMobileActivitiesOpen((v) => !v)}
-              className="flex items-center justify-between w-full font-mono text-xs font-bold text-[#163B66]"
+              onClick={() => setMobileWingsOpen((v) => !v)}
+              className="flex items-center justify-between w-full font-mono text-xs font-bold text-white hover:text-[#FF9933] transition-colors cursor-pointer"
             >
-              <span>• WINGS & CAUSES</span>
-              <span>{mobileActivitiesOpen ? "▲" : "▼"}</span>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#FF9933]" />
+                <span>WINGS &amp; OPERATIONAL CAUSES</span>
+              </div>
+              <ChevronDown className={`w-4 h-4 text-[#FF9933] transition-transform duration-200 ${mobileWingsOpen ? "rotate-180" : ""}`} />
             </button>
-            {mobileActivitiesOpen && (
-              <div className="flex flex-col gap-2.5 pl-3 pt-3">
-                {ACTIVITIES.map((act) => (
-                  <Link
-                    key={act.id}
-                    href={act.href}
-                    onClick={(e) => handleNavClick(e, act.id)}
-                    className={`py-1.5 border-l-2 pl-3 ${
-                      activeSection === act.id ? "border-[#D97706] text-[#163B66] font-bold" : "border-[#CBD5E1] text-[#0F172A]"
-                    }`}
-                  >
-                    <div className="font-bold text-xs">{act.label}</div>
-                    <div className="text-[10px] text-[#64748B]">{act.code}</div>
-                  </Link>
-                ))}
+
+            {mobileWingsOpen && (
+              <div className="flex flex-col gap-2 pt-3 mt-2 border-t border-[#205493]/60">
+                {ACTIVITIES.map((act) => {
+                  const ActIcon = act.icon;
+                  return (
+                    <Link
+                      key={act.id}
+                      href={act.href}
+                      onClick={(e) => handleNavClick(e, act.id)}
+                      className={`flex items-center gap-3 p-2 rounded-xl transition-all ${
+                        activeSection === act.id
+                          ? "bg-[#163B66] text-white font-bold border border-[#FF9933]/50"
+                          : "text-gray-300 hover:bg-[#163B66]/60 hover:text-white"
+                      }`}
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-[#071729] flex items-center justify-center shrink-0 border border-[#205493]">
+                        <ActIcon className="w-3.5 h-3.5 text-[#FF9933]" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-xs font-bold text-white">{act.label}</div>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </div>
 
-          {NAV_ITEMS.filter((i) => i.id !== "about").map((item) => (
-            <Link
-              key={item.id}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.id)}
-              className={`py-1 ${activeSection === item.id ? "text-[#D97706] font-bold" : "text-[#0F172A]"}`}
-            >
-              • {item.label}
-            </Link>
-          ))}
+          {/* Activities, Gallery, Donors, Contact */}
+          {NAV_ITEMS.filter((i) => i.id !== "about").map((item) => {
+            const ItemIcon = item.icon;
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.id)}
+                className={`flex items-center gap-2.5 py-2 px-3 rounded-xl transition-all ${
+                  activeSection === item.id
+                    ? "bg-[#D97706] text-white font-bold shadow-md"
+                    : "text-gray-200 hover:bg-[#163B66] hover:text-white"
+                }`}
+              >
+                <ItemIcon className="w-4 h-4 text-[#FF9933]" />
+                <span>{item.label}</span>
+              </Link>
+            );
+          })}
 
-          <div className="flex gap-3 pt-4 border-t border-[#E2E8F0]">
-            <Link href="/membership" onClick={() => setMobileOpen(false)} className="px-4 py-2.5 border-2 border-[#163B66] text-center flex-1 font-bold rounded-xl text-[#163B66]">
-              JOIN CAUSE
+          {/* Bottom Action Buttons in Dropdown */}
+          <div className="flex flex-col sm:flex-row gap-2.5 pt-3 mt-2 border-t border-[#205493]/70">
+            <Link
+              href="/membership"
+              onClick={() => setMobileOpen(false)}
+              className="py-3 px-4 bg-[#D97706] text-white text-center font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#B45309] transition-colors border-b-2 border-[#B45309]"
+            >
+              <UserPlus className="w-4 h-4" />
+              <span>JOIN CAUSE / VOLUNTEER</span>
             </Link>
-            <Link href="/#donors" onClick={(e) => handleNavClick(e, "donors")} className="px-4 py-2.5 bg-[#D97706] text-white text-center flex-1 font-bold rounded-xl shadow-md flex items-center justify-center gap-1.5">
-              <Heart className="w-3.5 h-3.5 fill-white text-white" />
-              <span>DONATE</span>
+            <Link
+              href="/#donors"
+              onClick={(e) => handleNavClick(e, "donors")}
+              className="py-3 px-4 bg-[#10B981] text-white text-center font-bold rounded-xl shadow-md flex items-center justify-center gap-2 hover:bg-[#059669] transition-colors border-b-2 border-[#059669]"
+            >
+              <Heart className="w-4 h-4 fill-white text-white" />
+              <span>DONATE TO CAUSE</span>
             </Link>
           </div>
         </nav>
