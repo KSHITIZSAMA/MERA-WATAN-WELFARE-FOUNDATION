@@ -16,6 +16,24 @@ interface ArchivePhoto {
 
 const ALL_PHOTOS: ArchivePhoto[] = [
   {
+    id: "p-new-1",
+    caption: "1600m Running Drill Competition: Medal & Certificate Distribution to Meritorious Cadets",
+    category: "Army Training",
+    src: "/images/gallery-1600m-race-medals.jpg",
+    batchDate: "HONORS 2026 // 1600M RUNNING DRILLS",
+    location: "RDA Police Stadium Ground, Betul",
+    tag: "1600M ATHLETIC DRILLS",
+  },
+  {
+    id: "p-new-2",
+    caption: "Army Recruitment Rally Special Guidance & Ex-Servicemen Leadership Conclave",
+    category: "Army Training",
+    src: "/images/gallery-army-rally-guidance.jpg",
+    batchDate: "RALLY GUIDANCE // EX-SERVICEMEN LEADERSHIP",
+    location: "Police Ground, District Betul",
+    tag: "ARMY RALLY CONCLAVE",
+  },
+  {
     id: "p1",
     caption: "Youth Defence Uniform Cadets Certificate & Medal Honor Ceremony (Matru Bhumi Seva Samman)",
     category: "Army Training",
@@ -118,9 +136,14 @@ export default function GalleryArchivePage() {
         <div className="mb-6">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-[#64748B] hover:text-[#163B66] transition-colors uppercase font-bold"
+            className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white hover:bg-[#163B66] border border-slate-200 hover:border-[#163B66] shadow-sm hover:shadow-md text-[#1E293B] hover:text-white transition-all duration-300 text-xs font-bold tracking-wider uppercase hover:-translate-y-0.5"
           >
-            <span>←</span> Back to Home Page
+            <span className="w-6 h-6 rounded-full bg-[#163B66]/10 text-[#163B66] group-hover:bg-white/20 group-hover:text-white flex items-center justify-center transition-colors">
+              <svg className="w-3.5 h-3.5 transform group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+            </span>
+            <span>Back to Home Page</span>
           </Link>
         </div>
 
