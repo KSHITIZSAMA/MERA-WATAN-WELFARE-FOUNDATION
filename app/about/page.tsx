@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import { db } from "@/lib/db";
-import { Briefcase, ShieldCheck, TrendingUp, MapPin, Users, Award, Laptop, FileText } from "lucide-react";
+import { Briefcase, ShieldCheck, TrendingUp, MapPin, Users, Award, Laptop, FileText, UserCheck, BookOpen, ClipboardCheck } from "lucide-react";
 
 export default function AboutPage() {
   const data = db.read();
@@ -329,46 +329,156 @@ export default function AboutPage() {
       </section>
 
       {/* 5. Implementation Model & Support Infrastructure */}
-      <section className="bg-[#0D223A] text-white py-16 border-t-4 border-[#D97706]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-block px-3 py-1 bg-[#163B66] text-[#FF9933] font-mono text-xs font-bold tracking-widest uppercase rounded-lg mb-3">
-              5-PHASE PROJECT IMPLEMENTATION MODEL
+      <section className="bg-gradient-to-b from-[#0B1E33] via-[#0D223A] to-[#081524] text-white py-20 border-t-4 border-[#D97706] relative overflow-hidden">
+        {/* Ambient background glows */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D97706]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#38BDF8]/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#163B66] text-[#FF9933] font-mono text-xs font-bold tracking-widest uppercase rounded-full mb-3 border border-[#205493] shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#FF9933] animate-pulse" />
+              <span>5-PHASE PROJECT IMPLEMENTATION MODEL</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white font-display">
+            <h2 className="text-3xl sm:text-5xl font-black uppercase text-white font-display tracking-tight">
               From Identification to Employment Linkage
             </h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#FF9933] via-[#38BDF8] to-[#10B981] mx-auto rounded-full mt-4 mb-4 shadow-sm" />
+            <p className="text-xs sm:text-sm text-gray-300 font-sans max-w-2xl mx-auto font-normal leading-relaxed">
+              A structured 12-month operational lifecycle tracking every cadet through baseline screening, intensive coaching, quarterly reviews, and certified employment placement.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-12">
-            <div className="bg-[#163B66] p-5 rounded-2xl border border-[#205493] space-y-2">
-              <div className="font-mono text-xs text-[#FF9933] font-bold">PHASE 01 // M1-M2</div>
-              <div className="font-bold text-sm uppercase font-display text-white">Identification & Baseline</div>
-              <p className="text-[11px] text-gray-300">Outreach, registration, baseline survey & physical aptitude test.</p>
+          {/* 5-Phase Process Flow Stepper Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-5 mb-16">
+            {/* Phase 01 */}
+            <div className="group relative bg-[#132F52]/85 hover:bg-[#163B66] border border-[#205493]/70 hover:border-[#FF9933] rounded-2xl p-5 shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-2 border-t-4 border-t-[#FF9933]">
+              <div>
+                <div className="mb-4">
+                  <div className="w-9 h-9 rounded-xl bg-[#FF9933]/15 border border-[#FF9933]/30 flex items-center justify-center text-[#FF9933] group-hover:scale-110 transition-transform">
+                    <UserCheck className="w-4 h-4" />
+                  </div>
+                </div>
+
+                <div className="font-mono text-[11px] font-black uppercase tracking-wider text-[#FF9933] mb-1">
+                  PHASE 01
+                </div>
+                <h3 className="text-base font-bold font-sans text-white leading-snug group-hover:text-[#FF9933] transition-colors mb-2">
+                  Identification &amp; Baseline
+                </h3>
+                <p className="text-xs text-gray-300 font-sans leading-relaxed">
+                  Rural outreach across Betul panchayats, baseline socio-economic surveys &amp; physical fitness aptitude tests.
+                </p>
+              </div>
+
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-gray-400">
+                <span className="uppercase">Deliverable</span>
+                <span className="text-[#FF9933] font-bold">Candidate Roster</span>
+              </div>
             </div>
 
-            <div className="bg-[#163B66] p-5 rounded-2xl border border-[#205493] space-y-2">
-              <div className="font-mono text-xs text-[#FF9933] font-bold">PHASE 02 // M2-M10</div>
-              <div className="font-bold text-sm uppercase font-display text-white">Integrated Training</div>
-              <p className="text-[11px] text-gray-300">Academic classes, defence drills, IT skilling & physical camps.</p>
+            {/* Phase 02 */}
+            <div className="group relative bg-[#132F52]/85 hover:bg-[#163B66] border border-[#205493]/70 hover:border-[#F59E0B] rounded-2xl p-5 shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-2 border-t-4 border-t-[#F59E0B]">
+              <div>
+                <div className="mb-4">
+                  <div className="w-9 h-9 rounded-xl bg-[#F59E0B]/15 border border-[#F59E0B]/30 flex items-center justify-center text-[#F59E0B] group-hover:scale-110 transition-transform">
+                    <BookOpen className="w-4 h-4" />
+                  </div>
+                </div>
+
+                <div className="font-mono text-[11px] font-black uppercase tracking-wider text-[#F59E0B] mb-1">
+                  PHASE 02
+                </div>
+                <h3 className="text-base font-bold font-sans text-white leading-snug group-hover:text-[#F59E0B] transition-colors mb-2">
+                  Integrated Training
+                </h3>
+                <p className="text-xs text-gray-300 font-sans leading-relaxed">
+                  Academic exam classes, 1.6 km speed endurance drills, practical IT modules, tailoring &amp; fitness camps.
+                </p>
+              </div>
+
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-gray-400">
+                <span className="uppercase">Deliverable</span>
+                <span className="text-[#F59E0B] font-bold">Curriculum Drills</span>
+              </div>
             </div>
 
-            <div className="bg-[#163B66] p-5 rounded-2xl border border-[#205493] space-y-2">
-              <div className="font-mono text-xs text-[#FF9933] font-bold">PHASE 03 // M4-M11</div>
-              <div className="font-bold text-sm uppercase font-display text-white">Assessment System</div>
-              <p className="text-[11px] text-gray-300">Monthly written tests, physical tracking & quarterly reviews.</p>
+            {/* Phase 03 */}
+            <div className="group relative bg-[#132F52]/85 hover:bg-[#163B66] border border-[#205493]/70 hover:border-[#38BDF8] rounded-2xl p-5 shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-2 border-t-4 border-t-[#38BDF8]">
+              <div>
+                <div className="mb-4">
+                  <div className="w-9 h-9 rounded-xl bg-[#38BDF8]/15 border border-[#38BDF8]/30 flex items-center justify-center text-[#38BDF8] group-hover:scale-110 transition-transform">
+                    <ClipboardCheck className="w-4 h-4" />
+                  </div>
+                </div>
+
+                <div className="font-mono text-[11px] font-black uppercase tracking-wider text-[#38BDF8] mb-1">
+                  PHASE 03
+                </div>
+                <h3 className="text-base font-bold font-sans text-white leading-snug group-hover:text-[#38BDF8] transition-colors mb-2">
+                  Assessment System
+                </h3>
+                <p className="text-xs text-gray-300 font-sans leading-relaxed">
+                  Monthly written mock tests, physical stamina tracking, biometric monitoring &amp; quarterly review audits.
+                </p>
+              </div>
+
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-gray-400">
+                <span className="uppercase">Deliverable</span>
+                <span className="text-[#38BDF8] font-bold">Progress Audits</span>
+              </div>
             </div>
 
-            <div className="bg-[#163B66] p-5 rounded-2xl border border-[#205493] space-y-2">
-              <div className="font-mono text-xs text-[#FF9933] font-bold">PHASE 04 // M6-M12</div>
-              <div className="font-bold text-sm uppercase font-display text-white">Career Linkage</div>
-              <p className="text-[11px] text-gray-300">Employer connect, job drives, apprenticeship & recruitment support.</p>
+            {/* Phase 04 */}
+            <div className="group relative bg-[#132F52]/85 hover:bg-[#163B66] border border-[#205493]/70 hover:border-[#818CF8] rounded-2xl p-5 shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-2 border-t-4 border-t-[#818CF8]">
+              <div>
+                <div className="mb-4">
+                  <div className="w-9 h-9 rounded-xl bg-[#818CF8]/15 border border-[#818CF8]/30 flex items-center justify-center text-[#818CF8] group-hover:scale-110 transition-transform">
+                    <Briefcase className="w-4 h-4" />
+                  </div>
+                </div>
+
+                <div className="font-mono text-[11px] font-black uppercase tracking-wider text-[#818CF8] mb-1">
+                  PHASE 04
+                </div>
+                <h3 className="text-base font-bold font-sans text-white leading-snug group-hover:text-[#818CF8] transition-colors mb-2">
+                  Career Linkage
+                </h3>
+                <p className="text-xs text-gray-300 font-sans leading-relaxed">
+                  Armed Forces rally registrations, job fairs, employer placement networks, resume drafts &amp; apprenticeships.
+                </p>
+              </div>
+
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-gray-400">
+                <span className="uppercase">Deliverable</span>
+                <span className="text-[#818CF8] font-bold">Recruitment Offers</span>
+              </div>
             </div>
 
-            <div className="bg-[#163B66] p-5 rounded-2xl border border-[#205493] space-y-2">
-              <div className="font-mono text-xs text-[#FF9933] font-bold">PHASE 05 // M12</div>
-              <div className="font-bold text-sm uppercase font-display text-white">Impact Assessment</div>
-              <p className="text-[11px] text-gray-300">Endline evaluation, success stories & CSR impact reporting.</p>
+            {/* Phase 05 */}
+            <div className="group relative bg-[#132F52]/85 hover:bg-[#163B66] border border-[#205493]/70 hover:border-[#10B981] rounded-2xl p-5 shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-2 border-t-4 border-t-[#10B981]">
+              <div>
+                <div className="mb-4">
+                  <div className="w-9 h-9 rounded-xl bg-[#10B981]/15 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] group-hover:scale-110 transition-transform">
+                    <Award className="w-4 h-4" />
+                  </div>
+                </div>
+
+                <div className="font-mono text-[11px] font-black uppercase tracking-wider text-[#10B981] mb-1">
+                  PHASE 05
+                </div>
+                <h3 className="text-base font-bold font-sans text-white leading-snug group-hover:text-[#10B981] transition-colors mb-2">
+                  Impact Assessment
+                </h3>
+                <p className="text-xs text-gray-300 font-sans leading-relaxed">
+                  Third-party impact evaluation, beneficiary income uplift documentation &amp; certified CSR reporting under Schedule VII.
+                </p>
+              </div>
+
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-gray-400">
+                <span className="uppercase">Deliverable</span>
+                <span className="text-[#10B981] font-bold">Certified Impact</span>
+              </div>
             </div>
           </div>
 
@@ -426,7 +536,6 @@ export default function AboutPage() {
               )}
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="font-mono text-xs text-[#D97706] mb-1.5 font-bold">LEADERSHIP • {m.id}</div>
                   <h3 className="text-xl font-bold font-sans text-[#163B66] mb-1">{m.name}</h3>
                   <div className="text-xs font-mono text-[#D97706] font-bold mb-3 uppercase tracking-wider">{m.role}</div>
                   <p className="text-xs sm:text-sm font-sans text-[#475569] leading-relaxed font-medium">{m.bio}</p>

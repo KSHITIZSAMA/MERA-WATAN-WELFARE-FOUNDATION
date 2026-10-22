@@ -100,12 +100,12 @@ export default function MembershipPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-xs font-mono uppercase tracking-wider text-[#163B66] font-bold mb-2">
-                  Email Address <span className="text-gray-400">(Optional)</span>
+                  Email Address <span className="text-gray-400 font-normal text-[11px]">(to receive email confirmation)</span>
                 </label>
                 <input
                   name="email"
                   type="email"
-                  placeholder="cadet@example.com"
+                  placeholder="volunteer@example.com"
                   className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-[#F8FAFC] text-[#0F172A] placeholder-gray-400 font-sans focus:outline-none focus:border-[#163B66] focus:ring-1 focus:ring-[#163B66] transition-colors text-sm"
                 />
               </div>
@@ -122,18 +122,19 @@ export default function MembershipPage() {
                   <option value="Army Training">Army & Defence Physical & Written Prep</option>
                   <option value="Women Empowerment">Women Empowerment & Self-Defense Wing</option>
                   <option value="Sports & Fitness">Sports Coaching & Athletics Wing</option>
+                  <option value="Community Volunteer">General Social Work & Community Volunteering</option>
                 </select>
               </div>
             </div>
 
             <div>
               <label className="block text-xs font-mono uppercase tracking-wider text-[#163B66] font-bold mb-2">
-                Additional Note / Experience <span className="text-gray-400">(Optional)</span>
+                Additional Note / Experience <span className="text-gray-400 font-normal text-[11px]">(Optional)</span>
               </label>
               <textarea
                 name="message"
                 rows={4}
-                placeholder="Mention any prior physical training, educational background, or specific goals..."
+                placeholder="Mention any prior volunteering experience, physical training, educational background, or specific goals..."
                 className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-[#F8FAFC] text-[#0F172A] placeholder-gray-400 font-sans focus:outline-none focus:border-[#163B66] focus:ring-1 focus:ring-[#163B66] transition-colors text-sm"
               />
             </div>
@@ -147,7 +148,7 @@ export default function MembershipPage() {
             {status === "done" && (
               <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-mono text-xs flex items-center gap-2">
                 <span className="text-lg">✔</span>
-                <span>Application received! Our drill coordinator will contact you via phone within 24 hours.</span>
+                <span>Application received! A confirmation email has been dispatched. Our ground coordinator will contact you via phone within 24 hours.</span>
               </div>
             )}
 
@@ -156,7 +157,7 @@ export default function MembershipPage() {
               disabled={status === "loading"}
               className="w-full py-4 bg-[#D97706] text-white font-mono text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-[#B45309] transition-colors shadow-lg disabled:opacity-60 border-b-4 border-[#B45309] cursor-pointer"
             >
-              {status === "loading" ? "SUBMITTING APPLICATION..." : "SUBMIT CADET APPLICATION"}
+              {status === "loading" ? "SUBMITTING APPLICATION..." : "SUBMIT VOLUNTEER / CADET APPLICATION"}
             </button>
           </form>
         </div>

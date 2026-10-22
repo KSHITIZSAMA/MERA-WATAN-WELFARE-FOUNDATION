@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { sendCadetNotificationToOwner } from "@/lib/emailService";
+import { sendCadetNotificationToOwner, sendVolunteerWelcomeEmail } from "@/lib/emailService";
 
 export async function POST(req: Request) {
   try {
@@ -19,18 +19,28 @@ export async function POST(req: Request) {
       message: message ? String(message).trim() : "",
     });
 
-    // Send instant cadet registration email notification to foundation owner (non-blocking)
+    // Send notification to foundation owner and welcome email to volunteer
     try {
-      await sendCadetNotificationToOwner({
-        name: record.name,
-        phone: record.phone,
-        email: record.email,
-        program: record.program,
-        message: record.message,
-        date: record.date,
-      });
+      await Promise.allSettled([
+        sendCadetNotificationToOwner({
+          name: record.name,
+          phone: record.phone,
+          email: record.email,
+          program: record.program,
+          message: record.message,
+          date: record.date,
+        }),
+        sendVolunteerWelcomeEmail({
+          name: record.name,
+          phone: record.phone,
+          email: record.email,
+          program: record.program,
+          message: record.message,
+          date: record.date,
+        }),
+      ]);
     } catch (emailErr) {
-      console.warn("Cadet registration email dispatch warning:", emailErr);
+      console.warn("Volunteer registration email dispatch warning:", emailErr);
     }
 
     return NextResponse.json({ ok: true, application: record });
